@@ -1,0 +1,35 @@
+{
+    "name": "ezd6",
+    "title": "EZD6",
+    "description": "A FoundryVTT system implementation of Scotty McFarland's EZD6 system",
+    "author": "Don Lloyd",
+    "authors": [],
+    "url": "https://github.com/drl2/ezd6-fvtt",
+    "license": "LICENSE.txt",
+    "flags": {},
+    "version": "0.0.1",
+    "minimumCoreVersion": "9",
+    "compatibleCoreVersion": "9",
+    "scripts": [],
+    "esmodules": [
+      "module/mighty-protectors.js"
+    ],
+    "styles": [
+      "mighty-protectors.css"
+    ],
+    "languages": [
+      {
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+      }
+    ],
+    "system": [],
+    "dependencies": [],
+    "socket": false,
+    "manifest": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.json",
+    "download": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.zip",
+    "protected": false,
+    "gridDistance": 5,
+    "gridUnits": "ft"
+  }

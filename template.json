@@ -1,0 +1,35 @@
+{
+    "Actor": {
+      "types": ["character","monster"],
+      "templates": {
+        "base": {
+          "strikes": {
+            "value": 3,
+            "max": 3
+          },
+          "to-hit": 3
+        }
+      },
+      "character": {
+        "templates": ["base"],
+        "armor": 0,
+        "karma": 0,
+        "hero-die": 1
+      },
+      "monster": {
+        "templates": ["base"]
+      }
+    },
+    "Item": {
+      "types": [
+        "hero-path",
+        "species",
+        "boon",
+        "feature",
+        "inclination",
+        "aspect",
+        "circle",
+        "equipment"
+      ]
+    }
+}
