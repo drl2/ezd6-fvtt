@@ -12,10 +12,10 @@
     "compatibleCoreVersion": "9",
     "scripts": [],
     "esmodules": [
-      "module/mighty-protectors.js"
+      "module/ezd6.js"
     ],
     "styles": [
-      "mighty-protectors.css"
+      "ezd6.css"
     ],
     "languages": [
       {
@@ -33,4 +33,3 @@
     "gridDistance": 5,
     "gridUnits": "ft"
   }
-  

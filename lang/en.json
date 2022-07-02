@@ -1,0 +1,23 @@
+{
+    "ACTOR": {
+        "TypeCharacter": "Pusher and Shover",
+        "TypeMonster": "Monster"    
+    },
+    "ITEM": {
+        "TypeHeropath": "Hero Path",
+        "TypeSpecies": "Species",
+        "TypeBoon": "Hero Path Boon",
+        "TypeFeature": "Hero Path Feature",
+        "TypeInclination": "Inclination",
+        "TypeAspect": "Aspect",
+        "TypeCircle": "Circle of Sorcery",
+        "TypeEquipment": "Equipment",
+        "TypeMonsterfeature": "Monster Feature"
+    },
+    "EQUIPMENT": {
+        "Gear": "Other Equipment",
+        "Potion": "Potion",
+        "Weapon": "Weapon",
+        "Scroll": "Scroll"
+    }
+}

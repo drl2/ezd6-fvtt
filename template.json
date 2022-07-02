@@ -12,7 +12,8 @@
       },
       "character": {
         "templates": ["base"],
-        "armor": 0,
+        "armor-type": "",
+        "armor-save": 0,
         "karma": 0,
         "hero-die": 1
       },
@@ -22,14 +23,15 @@
     },
     "Item": {
       "types": [
-        "hero-path",
+        "heropath",
         "species",
         "boon",
         "feature",
         "inclination",
         "aspect",
         "circle",
-        "equipment"
+        "equipment",
+        "monsterfeature"
       ]
     }
 }
