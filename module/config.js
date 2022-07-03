@@ -7,8 +7,6 @@ EZD6.EquipmentTypes = {
     scroll: "EQUIPMENT.Scroll"
 }
 
-
-
 EZD6.ItemTypeImages = {
     heropath: "systems/ezd6/assets/icons/mountain-road.svg",
     species: "systems/ezd6/assets/icons/dna2.svg",
@@ -21,7 +19,6 @@ EZD6.ItemTypeImages = {
     monsterfeature: "systems/ezd6/assets/icons/midnight-claw.svg"
 }
 
-
 EZD6.EquipmentTypeImages = {
     gear: "systems/ezd6/assets/icons/light-backpack.svg",
     potion: "systems/ezd6/assets/icons/round-potion.svg",
@@ -30,6 +27,6 @@ EZD6.EquipmentTypeImages = {
 }
 
 EZD6.ActorTypeImages = {
-    character: "systems/ezd6/assets/icons/dmscotty.webp",
+    character: "systems/ezd6/assets/icons/dmscotty_white_nobg.webp",
     monster: "systems/ezd6/assets/icons/wyvern.svg"
 }

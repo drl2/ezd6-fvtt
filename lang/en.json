@@ -19,5 +19,16 @@
         "Potion": "Potion",
         "Weapon": "Weapon",
         "Scroll": "Scroll"
+    },
+    "EZD6": {
+        "HeroPath": "Hero Path",
+        "Strikes": "Strikes",
+        "Armor": "Armor",
+        "Save": "Save",
+        "HeroName": "Hero Name",
+        "ToHit": "To Hit",
+        "Species": "Species",
+        "CreateItem": "Create item",
+        "ShowDesc": "Show description in chat"
     }
 }

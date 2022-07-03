@@ -1,4 +1,48 @@
+.ezd6.sheet.character {
+  /*  Sheet header */
+}
 .ezd6.sheet.character form {
   display: flex;
   flex-direction: column;
+}
+.ezd6.sheet.character .important-stat {
+  font-weight: bold;
+}
+.ezd6.sheet.character .sheet-header {
+  flex: 0;
+  margin-bottom: 5px;
+}
+.ezd6.sheet.character .sheet-header .charimage {
+  height: 100px;
+  width: 100px;
+}
+.ezd6.sheet.character .sheet-header .item-subtitle {
+  margin-left: 8px;
+}
+.ezd6.sheet.character .sheet-header .item-subtitle .item-type {
+  font-size: 10px;
+  line-height: 14px;
+}
+.ezd6.sheet.character .sheet-header .header-stats {
+  font-size: 14px;
+  margin-left: 12px;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  align-items: center;
+}
+.ezd6.sheet.character .sheet-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.character .sheet-body .body-outer-grid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+.ezd6.sheet.character .sheet-body input[type="number"] {
+  width: 30px;
+  text-align: center;
+}
+.ezd6.sheet.character .sheet-body input[type="text"] {
+  width: 90px;
 }

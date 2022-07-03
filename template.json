@@ -15,7 +15,10 @@
         "armor-type": "",
         "armor-save": 0,
         "karma": 0,
-        "hero-die": 1
+        "hero-dice": 1,
+        "wealth": 0,
+        "hero-path-name": "",
+        "species-name": ""
       },
       "monster": {
         "templates": ["base"]
@@ -32,6 +35,35 @@
         "circle",
         "equipment",
         "monsterfeature"
-      ]
+      ],
+      "heropath": {
+        "description": ""
+      },
+      "species": {
+        "description": ""
+      },
+      "boon": {
+        "description": ""
+      },
+      "feature": {
+        "description": ""
+      },
+      "inclination": {
+        "description": ""
+      },
+      "aspect": {
+        "description": ""
+      },
+      "circle": {
+        "description": ""
+      },
+      "equipment": {
+        "description": "",
+        "equipment-type": "gear",
+        "count": 1
+      },
+      "monsterfeature": {
+        "description": ""
+      }
     }
 }

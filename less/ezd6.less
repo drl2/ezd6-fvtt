@@ -4,5 +4,60 @@
         flex-direction: column;
       }
 
-
+    .important-stat {
+        font-weight: bold;
     }
+
+    /*  Sheet header */
+    .sheet-header {
+      flex: 0;
+      margin-bottom: 5px;
+
+      .charimage {
+          height: 100px;
+          width: 100px;
+      }
+
+      .item-subtitle {
+          margin-left: 8px;
+
+          .item-type {
+              font-size: 10px;
+              line-height: 14px;
+          }
+      }
+
+      .header-stats {
+          font-size: 14px;
+          margin-left: 12px;
+          display: grid;
+          grid-template-columns: 45% 45%;
+          align-items: center;
+
+
+      }
+  }
+
+  .sheet-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .body-outer-grid {
+      display: grid;
+      grid-template-columns: 60% 40%;
+    }
+
+    input[type="number"] {
+      width: 30px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 90px;
+    }  
+
+  }
+
+
+}
