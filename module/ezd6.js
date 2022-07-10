@@ -1,5 +1,6 @@
 import { EZD6 } from "./config.js";
 import EZD6CharacterSheet from "./sheets/EZD6CharacterSheet.js";
+import EZActor from "./ezactor.js";
 
 
 Hooks.once("init", function() {
@@ -7,6 +8,8 @@ Hooks.once("init", function() {
 
     checkDsNSetting();
     registerSystemSettings();
+
+    CONFIG.Actor.documentClass = EZActor;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet(game.system.id, EZD6CharacterSheet, {makeDefault: true });

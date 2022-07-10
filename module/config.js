@@ -7,6 +7,15 @@ EZD6.EquipmentTypes = {
     scroll: "EQUIPMENT.Scroll"
 }
 
+EZD6.WealthLevels = {
+    pauper: "WEALTH.Pauper",
+    cashpoor: "WEALTH.CashPoor",
+    moderate: "WEALTH.Moderate",
+    wealthy: "WEALTH.Wealthy",
+    lordly: "WEALTH.Lordly",
+    kingly: "WEALTH.Kingly"
+}
+
 EZD6.ItemTypeImages = {
     heropath: "systems/ezd6/assets/icons/mountain-road.svg",
     species: "systems/ezd6/assets/icons/dna2.svg",

@@ -37,7 +37,7 @@
 }
 .ezd6.sheet.character .sheet-body .body-outer-grid {
   display: grid;
-  grid-template-columns: 60% 40%;
+  grid-template-columns: auto 180px;
 }
 .ezd6.sheet.character .sheet-body input[type="number"] {
   width: 30px;
@@ -45,4 +45,38 @@
 }
 .ezd6.sheet.character .sheet-body input[type="text"] {
   width: 90px;
+}
+.ezd6.sheet.character .sheet-body .header-text {
+  text-decoration: underline;
+}
+.ezd6.sheet.character .sheet-body .item-list {
+  align-items: center;
+  border: solid;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+  border-width: 1px;
+  margin-right: 8px;
+}
+.ezd6.sheet.character .sheet-body .item-list .action-col {
+  text-align: right;
+}
+.ezd6.sheet.character .sheet-body .right-col {
+  display: grid;
+  align-items: center;
+  border: solid;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+  border-width: 1px;
+  margin-bottom: 4px;
+}
+.ezd6.sheet.character .sheet-body .right-col div {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ezd6.sheet.character .sheet-body .right-col .headertext {
+  font-weight: bold;
+  font-size: large;
+}
+.ezd6.sheet.character .sheet-body .right-col .subtext {
+  font-size: smaller;
 }

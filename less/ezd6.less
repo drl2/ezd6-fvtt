@@ -45,7 +45,7 @@
 
     .body-outer-grid {
       display: grid;
-      grid-template-columns: 60% 40%;
+      grid-template-columns: auto 180px;
     }
 
     input[type="number"] {
@@ -57,6 +57,46 @@
       width: 90px;
     }  
 
+    .header-text {
+      text-decoration: underline;
+    }
+
+    .item-list {
+        align-items: center;
+        border: solid;
+        border-radius: 5px;
+        padding: 2px 8px 2px 8px;
+        border-width: 1px;
+        margin-right: 8px;
+
+      .action-col {
+        text-align: right;
+      }
+    }
+
+    .right-col {
+      display: grid;
+      align-items: center;
+      border: solid;
+      border-radius: 5px;
+      padding: 2px 8px 2px 8px;
+      border-width: 1px;
+      margin-bottom: 4px;
+
+      div {
+        margin-left:auto;
+        margin-right: auto;
+      }
+
+      .headertext {
+        font-weight: bold;
+        font-size: large;
+      }
+
+      .subtext {
+        font-size: smaller;
+      }
+    }
   }
 
 

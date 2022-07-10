@@ -14,9 +14,10 @@
         "templates": ["base"],
         "armor-type": "",
         "armor-save": 0,
+        "miraculous-save": 0,
         "karma": 0,
         "hero-dice": 1,
-        "wealth": 0,
+        "wealth": "WEALTH.Moderate",
         "hero-path-name": "",
         "species-name": ""
       },

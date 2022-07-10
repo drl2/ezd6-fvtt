@@ -20,6 +20,14 @@
         "Weapon": "Weapon",
         "Scroll": "Scroll"
     },
+    "WEALTH": {
+        "Pauper": "Pauper",
+        "CashPoor": "Cash Poor",
+        "Moderate": "Moderate",
+        "Wealthy": "Wealthy",
+        "Lordly": "Lordly Wealth",
+        "Kingly": "Kingly Wealth"
+    },
     "EZD6": {
         "HeroPath": "Hero Path",
         "Strikes": "Strikes",
@@ -28,7 +36,25 @@
         "HeroName": "Hero Name",
         "ToHit": "To Hit",
         "Species": "Species",
-        "CreateItem": "Create item",
-        "ShowDesc": "Show description in chat"
+        "CreateItem": "Create Item",
+        "ShowDesc": "Show description in chat",
+        "Description": "Description",
+        "AddButton": "Add",
+        "EditItem": "EditItem",
+        "DeleteItem": "DeleteItem",
+        "HeroFeatures": "Hero Path Features",
+        "Inclinations": "Inclinations",
+        "Aspects": "Aspects",
+        "Karma": "Karma",
+        "HeroDice": "Hero Dice",
+        "StrikesUntilDead": "Strikes Until Dead",
+        "Health": "Health",
+        "RollToIgnore": "Roll to ignore 1 strike when hit",
+        "Boons": "Boons",
+        "WoundSave": "Wound Save",
+        "MirSave": "Miraculous",
+        "RollSave": "Roll Save",
+        "RollAttack": "Roll Attack",
+        "Wealth": "Wealth"
     }
 }

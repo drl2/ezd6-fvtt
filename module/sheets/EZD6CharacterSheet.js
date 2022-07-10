@@ -22,6 +22,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
         const actorData = this.actor.data.toObject(false);
         sheetData.actor = actorData;
         sheetData.data = actorData.data;
+        sheetData.config = EZD6;
 
         this._prepareItems(sheetData);
 
