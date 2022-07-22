@@ -23,10 +23,17 @@ export default class EZActor extends Actor {
     prepareDerivedData() {
         super.prepareDerivedData();
 
-        if (this.data.type === 'character') {
-            this.data.data.hasPath = (this.data.data.hero-path-name != "");
-            this.data.data.hasSpecies = (this.data.data.species-name != "");
-        }
+        if (this.data.type === 'character') {this._prepareDerivedCharacterData()};
     }
+
+    _prepareDerivedCharacterData() {
+        const actorData = this.data.data;
+
+        actorData.hasSpecies = (actorData.species != "");
+        actorData.hasPath = (actorData.heropath != "");
+    }
+
+    
+
 
 }

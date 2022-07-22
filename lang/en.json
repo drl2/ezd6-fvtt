@@ -15,10 +15,10 @@
         "TypeMonsterfeature": "Monster Feature"
     },
     "EQUIPMENT": {
-        "Gear": "Other Equipment",
+        "Gear": "Gear",
         "Potion": "Potion",
-        "Weapon": "Weapon",
-        "Scroll": "Scroll"
+        "Scroll": "Scroll",
+        "Weapon": "Weapon"
     },
     "WEALTH": {
         "Pauper": "Pauper",
@@ -55,6 +55,10 @@
         "MirSave": "Miraculous",
         "RollSave": "Roll Save",
         "RollAttack": "Roll Attack",
-        "Wealth": "Wealth"
+        "Wealth": "Wealth",
+        "Type": "Type",
+        "Boon": "Boon",
+        "Bane": "Bane",
+        "Quantity": "Quantity"
     }
 }

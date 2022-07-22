@@ -12,7 +12,7 @@
             <div class="header-stats">
                 <div>
                     {{localize 'EZD6.HeroPath'}}:
-                    <span class="important-stat">{{data.hero-path-name}}</span>
+                    <span class="important-stat">{{data.heropath}}</span>
                     &nbsp;
                     {{#if data.hasPath}}
                         <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
@@ -27,7 +27,7 @@
 
                 <div>
                     {{localize 'EZD6.Species'}}:
-                    <span class="important-stat">{{data.species-name}}</span>
+                    <span class="important-stat">{{data.species}}</span>
                     &nbsp;
                     {{#if data.hasSpecies}}
                         <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
@@ -249,6 +249,12 @@
                         <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
                         <input name="data.to-hit" type="number" value="{{data.to-hit}}" />
                         <a class="item-control rollattack" title="{{localize 'EZD6.RollAttack'}}"><i class="fas fa-dice-six"></i></a> 
+                    </div>
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.Boon'}}/{{localize 'EZD6.Bane'}}:</span>&nbsp;
+                        <a class="item-control minus" data-field="boonbane"><i class="fas fa-minus"></i></a>
+                        <input name="data.boonbane" type="number" value="{{data.boonbane}}" />
+                        <a class="item-control plus" data-field="boonbane"><i class="fas fa-plus"></i></a>
                     </div>
                 </div>
 

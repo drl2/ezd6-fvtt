@@ -1,6 +1,8 @@
 import { EZD6 } from "./config.js";
 import EZD6CharacterSheet from "./sheets/EZD6CharacterSheet.js";
+import EZD6ItemSheet from "./sheets/EZD6ItemSheet.js";
 import EZActor from "./ezactor.js";
+import EZItem from './ezitem.js';
 
 
 Hooks.once("init", function() {
@@ -10,9 +12,13 @@ Hooks.once("init", function() {
     registerSystemSettings();
 
     CONFIG.Actor.documentClass = EZActor;
+    CONFIG.Item.documentClass = EZItem;
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet(game.system.id, EZD6CharacterSheet, {makeDefault: true });
+    
+    Items.unregisterSheet("core", ItemSheet);
+    Items.registerSheet(game.system.id, EZD6ItemSheet, {makeDefault: true });
 });
 
 

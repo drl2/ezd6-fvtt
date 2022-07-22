@@ -18,8 +18,9 @@
         "karma": 0,
         "hero-dice": 1,
         "wealth": "WEALTH.Moderate",
-        "hero-path-name": "",
-        "species-name": ""
+        "heropath": "",
+        "species": "",
+        "boonbane": 0
       },
       "monster": {
         "templates": ["base"]
@@ -61,7 +62,7 @@
       "equipment": {
         "description": "",
         "equipment-type": "gear",
-        "count": 1
+        "quantity": 1
       },
       "monsterfeature": {
         "description": ""

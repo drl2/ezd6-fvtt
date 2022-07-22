@@ -1,10 +1,10 @@
 import { EZD6 } from "../config.js";
+import EZItem from "../ezitem.js"
 
 export default class EZD6CharacterSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
-            classes: ["ezd6", "sheet", "character"],
-            tabs: [{ navSelector: ".sheet-navigation", contentSelector: ".sheet-body", initial: "stats" }]
+            classes: ["ezd6", "sheet", "character"]
         });
     }
 
@@ -29,6 +29,13 @@ export default class EZD6CharacterSheet extends ActorSheet {
         return sheetData;
     }
 
+    activateListeners(html) {
+        super.activateListeners(html);
+
+        if (!this.options.editable) return;
+
+
+    }
 
     _prepareItems(sheetData) {
         const heropath = [];
@@ -90,5 +97,30 @@ export default class EZD6CharacterSheet extends ActorSheet {
             sheetData.equipment = equipment;
             sheetData.monsterfeature = monsterfeature;
         }
+    }
+
+    async _onDropItemCreate(itemData) {
+        const actorData = this.actor.data.data;
+
+        if (itemData.type === 'heropath') {
+            if (actorData.hasPath) {
+                return false;
+            }
+            else {
+                await this.actor.update({"data.heropath": itemData.name});
+            }
+        }
+
+        if (itemData.type === 'species') {
+            if (actorData.hasSpecies) {
+                return false;
+            }
+            else {
+                await this.actor.update({"data.species": itemData.name});
+            }
+            
+        }
+        
+        return super._onDropItemCreate(itemData);
     }
 }

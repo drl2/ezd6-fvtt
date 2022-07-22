@@ -1,3 +1,49 @@
+.ezd6.sheet.item {
+  /*  Sheet header */
+  /* sheet body */
+}
+.ezd6.sheet.item form {
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.item .rollable {
+  cursor: pointer;
+}
+.ezd6.sheet.item .rollable:hover {
+  text-shadow: 0 0 8px red;
+  color: black;
+}
+.ezd6.sheet.item .sheet-header {
+  flex: 0;
+  margin-bottom: 2px;
+}
+.ezd6.sheet.item .sheet-header .item-subtitle {
+  margin-left: 8px;
+}
+.ezd6.sheet.item .sheet-header .item-subtitle .item-type {
+  font-size: 10px;
+  line-height: 14px;
+}
+.ezd6.sheet.item .sheet-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.item .sheet-body .desccolumn {
+  height: 100%;
+}
+.ezd6.sheet.item .sheet-body .desccolumn .desctext {
+  min-height: 150px;
+  height: 85%;
+}
+.ezd6.sheet.item .sheet-body input[type="number"] {
+  width: 30px;
+  text-align: center;
+}
+.ezd6.sheet.item .sheet-body .equipment {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
 .ezd6.sheet.character {
   /*  Sheet header */
 }
@@ -45,6 +91,7 @@
 }
 .ezd6.sheet.character .sheet-body input[type="text"] {
   width: 90px;
+  text-align: center;
 }
 .ezd6.sheet.character .sheet-body .header-text {
   text-decoration: underline;
