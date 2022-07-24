@@ -7,20 +7,17 @@
             "value": 3,
             "max": 3
           },
-          "to-hit": 3
+          "tohit": 3
         }
       },
       "character": {
         "templates": ["base"],
-        "armor-type": "",
-        "armor-save": 0,
-        "miraculous-save": 0,
+        "armortype": "",
+        "armorsave": 5,
+        "miraculoussave": 5,
         "karma": 0,
-        "hero-dice": 1,
-        "wealth": "WEALTH.Moderate",
-        "heropath": "",
-        "species": "",
-        "boonbane": 0
+        "herodice": 1,
+        "wealth": "WEALTH.Moderate"
       },
       "monster": {
         "templates": ["base"]
@@ -61,7 +58,7 @@
       },
       "equipment": {
         "description": "",
-        "equipment-type": "gear",
+        "equipmenttype": "EQUIPMENT.Gear",
         "quantity": 1
       },
       "monsterfeature": {

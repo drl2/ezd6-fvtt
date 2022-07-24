@@ -90,7 +90,7 @@
   text-align: center;
 }
 .ezd6.sheet.character .sheet-body input[type="text"] {
-  width: 90px;
+  width: 120px;
   text-align: center;
 }
 .ezd6.sheet.character .sheet-body .header-text {
@@ -106,6 +106,14 @@
 }
 .ezd6.sheet.character .sheet-body .item-list .action-col {
   text-align: right;
+}
+.ezd6.sheet.character .sheet-body .item-list .equip-header {
+  font-size: smaller;
+  font-style: italic;
+}
+.ezd6.sheet.character .sheet-body .item-list .qty-plusminus {
+  font-weight: bolder;
+  font-size: large;
 }
 .ezd6.sheet.character .sheet-body .right-col {
   display: grid;
@@ -126,4 +134,21 @@
 }
 .ezd6.sheet.character .sheet-body .right-col .subtext {
   font-size: smaller;
+}
+#roll-dialog .roll-group {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  align-items: center;
+  text-align: center;
+  font-size: larger;
+}
+#roll-dialog .roll-group input[type="number"] {
+  width: 30px;
+  text-align: center;
+}
+#roll-dialog .roll-group .minus {
+  padding-left: 3px;
+}
+#roll-dialog .roll-group .plus {
+  padding-right: 3px;
 }

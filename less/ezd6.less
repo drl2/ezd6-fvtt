@@ -56,7 +56,7 @@
     }
 
     input[type="text"] {
-      width: 90px;
+      width: 120px;
       text-align: center;
     }  
 
@@ -74,6 +74,16 @@
 
       .action-col {
         text-align: right;
+      }
+
+      .equip-header {
+        font-size: smaller;
+        font-style: italic;
+      }
+
+      .qty-plusminus {
+        font-weight: bolder;
+        font-size: large;
       }
     }
 
@@ -101,6 +111,29 @@
       }
     }
   }
-
-
 }
+
+
+#roll-dialog {
+  .roll-group {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+
+    input[type="number"] {
+      width: 30px;
+      text-align: center;
+    }
+
+    .minus {
+      padding-left: 3px;
+    }
+    .plus {
+      padding-right: 3px;
+    }
+
+  }
+}
+

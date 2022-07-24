@@ -28,6 +28,9 @@
         "Lordly": "Lordly Wealth",
         "Kingly": "Kingly Wealth"
     },
+    "MESSAGES": {
+        "NoHeroDice": "No hero dice available!"
+    },
     "EZD6": {
         "HeroPath": "Hero Path",
         "Strikes": "Strikes",
@@ -40,8 +43,8 @@
         "ShowDesc": "Show description in chat",
         "Description": "Description",
         "AddButton": "Add",
-        "EditItem": "EditItem",
-        "DeleteItem": "DeleteItem",
+        "EditItem": "Edit Item",
+        "DeleteItem": "Delete Item",
         "HeroFeatures": "Hero Path Features",
         "Inclinations": "Inclinations",
         "Aspects": "Aspects",
@@ -52,13 +55,38 @@
         "RollToIgnore": "Roll to ignore 1 strike when hit",
         "Boons": "Boons",
         "WoundSave": "Wound Save",
-        "MirSave": "Miraculous",
+        "Miraculous": "Miraculous",
         "RollSave": "Roll Save",
         "RollAttack": "Roll Attack",
         "Wealth": "Wealth",
         "Type": "Type",
         "Boon": "Boon",
         "Bane": "Bane",
-        "Quantity": "Quantity"
+        "Quantity": "Quantity",
+        "NewHeroPath": "New Hero Path",
+        "NewSpecies": "New Species",
+        "NewBoon": "New Hero Path Boon",
+        "NewFeature": "New Hero Path Feature",
+        "NewInclination": "New Inclination",
+        "NewAspect": "New Aspect",
+        "NewCircle": "New Circle of Sorcery",
+        "NewEquipment": "New Equipment",
+        "NewMonsterfeature": "New Monster Feature",
+        "Weapons": "Weapons",
+        "Potions": "Potions",
+        "Scrolls": "Scrolls",
+        "Gears": "Gear",
+        "RollHeroDie": "Roll a Hero die",
+        "Roll": "Roll",
+        "Cancel": "Cancel",
+        "MiraculousSave": "Miraculous Save",
+        "ToHitRoll": "To Hit Roll",
+        "for": "for",
+        "attacks": "attacks",
+        "Needs": "Needs",
+        "Success": "Success",
+        "RollFailed": "Roll failed",
+        "RollsAHeroDie": "Rolls a Hero die"
     }
 }
+
