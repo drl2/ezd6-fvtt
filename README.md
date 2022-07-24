@@ -2,8 +2,10 @@
 Foundry VTT system for playing Scotty McFarland's EZD6 system.
 
 ---
-* This is a pre-release version of this system for testing and feedback only!  It is not intended for use in setting up a real campaign, as significant aspects of the system are either a) not yet implemented, or b) likely toi change in ways that might break any game you've set up with this version. *
---
+
+*This is a pre-release version of this system for testing and feedback only!  It is not intended for use in setting up a real campaign, as significant aspects of the system are either a) not yet implemented, or b) likely toi change in ways that might break any game you've set up with this version.*
+
+---
 
 
 ## Implemented So Far
