@@ -1,0 +1,139 @@
+@import "./item-sheet.less";
+
+.ezd6.sheet.character {
+    form {
+        display: flex;
+        flex-direction: column;
+      }
+
+    .important-stat {
+        font-weight: bold;
+    }
+
+    /*  Sheet header */
+    .sheet-header {
+      flex: 0;
+      margin-bottom: 5px;
+
+      .charimage {
+          height: 100px;
+          width: 100px;
+      }
+
+      .item-subtitle {
+          margin-left: 8px;
+
+          .item-type {
+              font-size: 10px;
+              line-height: 14px;
+          }
+      }
+
+      .header-stats {
+          font-size: 14px;
+          margin-left: 12px;
+          display: grid;
+          grid-template-columns: 45% 45%;
+          align-items: center;
+
+
+      }
+  }
+
+  .sheet-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .body-outer-grid {
+      display: grid;
+      grid-template-columns: auto 180px;
+    }
+
+    input[type="number"] {
+      width: 30px;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 120px;
+      text-align: center;
+    }  
+
+    .header-text {
+      text-decoration: underline;
+    }
+
+    .item-list {
+        align-items: center;
+        border: solid;
+        border-radius: 5px;
+        padding: 2px 8px 2px 8px;
+        border-width: 1px;
+        margin-right: 8px;
+
+      .action-col {
+        text-align: right;
+      }
+
+      .equip-header {
+        font-size: smaller;
+        font-style: italic;
+      }
+
+      .qty-plusminus {
+        font-weight: bolder;
+        font-size: large;
+      }
+    }
+
+    .right-col {
+      display: grid;
+      align-items: center;
+      border: solid;
+      border-radius: 5px;
+      padding: 2px 8px 2px 8px;
+      border-width: 1px;
+      margin-bottom: 4px;
+
+      div {
+        margin-left:auto;
+        margin-right: auto;
+      }
+
+      .headertext {
+        font-weight: bold;
+        font-size: large;
+      }
+
+      .subtext {
+        font-size: smaller;
+      }
+    }
+  }
+}
+
+
+#roll-dialog {
+  .roll-group {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    align-items: center;
+    text-align: center;
+    font-size: larger;
+
+    input[type="number"] {
+      width: 30px;
+      text-align: center;
+    }
+
+    .minus {
+      padding-left: 3px;
+    }
+    .plus {
+      padding-right: 3px;
+    }
+
+  }
+}
+

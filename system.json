@@ -7,15 +7,15 @@
     "url": "https://github.com/drl2/ezd6-fvtt",
     "license": "LICENSE.txt",
     "flags": {},
-    "version": "0.0.1",
+    "version": "0.5.0",
     "minimumCoreVersion": "9",
     "compatibleCoreVersion": "9",
     "scripts": [],
     "esmodules": [
-      "module/mighty-protectors.js"
+      "module/ezd6.js"
     ],
     "styles": [
-      "mighty-protectors.css"
+      "ezd6.css"
     ],
     "languages": [
       {

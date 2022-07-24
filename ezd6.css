@@ -1,0 +1,154 @@
+.ezd6.sheet.item {
+  /*  Sheet header */
+  /* sheet body */
+}
+.ezd6.sheet.item form {
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.item .rollable {
+  cursor: pointer;
+}
+.ezd6.sheet.item .rollable:hover {
+  text-shadow: 0 0 8px red;
+  color: black;
+}
+.ezd6.sheet.item .sheet-header {
+  flex: 0;
+  margin-bottom: 2px;
+}
+.ezd6.sheet.item .sheet-header .item-subtitle {
+  margin-left: 8px;
+}
+.ezd6.sheet.item .sheet-header .item-subtitle .item-type {
+  font-size: 10px;
+  line-height: 14px;
+}
+.ezd6.sheet.item .sheet-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.item .sheet-body .desccolumn {
+  height: 100%;
+}
+.ezd6.sheet.item .sheet-body .desccolumn .desctext {
+  min-height: 150px;
+  height: 85%;
+}
+.ezd6.sheet.item .sheet-body input[type="number"] {
+  width: 30px;
+  text-align: center;
+}
+.ezd6.sheet.item .sheet-body .equipment {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.ezd6.sheet.character {
+  /*  Sheet header */
+}
+.ezd6.sheet.character form {
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.character .important-stat {
+  font-weight: bold;
+}
+.ezd6.sheet.character .sheet-header {
+  flex: 0;
+  margin-bottom: 5px;
+}
+.ezd6.sheet.character .sheet-header .charimage {
+  height: 100px;
+  width: 100px;
+}
+.ezd6.sheet.character .sheet-header .item-subtitle {
+  margin-left: 8px;
+}
+.ezd6.sheet.character .sheet-header .item-subtitle .item-type {
+  font-size: 10px;
+  line-height: 14px;
+}
+.ezd6.sheet.character .sheet-header .header-stats {
+  font-size: 14px;
+  margin-left: 12px;
+  display: grid;
+  grid-template-columns: 45% 45%;
+  align-items: center;
+}
+.ezd6.sheet.character .sheet-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ezd6.sheet.character .sheet-body .body-outer-grid {
+  display: grid;
+  grid-template-columns: auto 180px;
+}
+.ezd6.sheet.character .sheet-body input[type="number"] {
+  width: 30px;
+  text-align: center;
+}
+.ezd6.sheet.character .sheet-body input[type="text"] {
+  width: 120px;
+  text-align: center;
+}
+.ezd6.sheet.character .sheet-body .header-text {
+  text-decoration: underline;
+}
+.ezd6.sheet.character .sheet-body .item-list {
+  align-items: center;
+  border: solid;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+  border-width: 1px;
+  margin-right: 8px;
+}
+.ezd6.sheet.character .sheet-body .item-list .action-col {
+  text-align: right;
+}
+.ezd6.sheet.character .sheet-body .item-list .equip-header {
+  font-size: smaller;
+  font-style: italic;
+}
+.ezd6.sheet.character .sheet-body .item-list .qty-plusminus {
+  font-weight: bolder;
+  font-size: large;
+}
+.ezd6.sheet.character .sheet-body .right-col {
+  display: grid;
+  align-items: center;
+  border: solid;
+  border-radius: 5px;
+  padding: 2px 8px 2px 8px;
+  border-width: 1px;
+  margin-bottom: 4px;
+}
+.ezd6.sheet.character .sheet-body .right-col div {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ezd6.sheet.character .sheet-body .right-col .headertext {
+  font-weight: bold;
+  font-size: large;
+}
+.ezd6.sheet.character .sheet-body .right-col .subtext {
+  font-size: smaller;
+}
+#roll-dialog .roll-group {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  align-items: center;
+  text-align: center;
+  font-size: larger;
+}
+#roll-dialog .roll-group input[type="number"] {
+  width: 30px;
+  text-align: center;
+}
+#roll-dialog .roll-group .minus {
+  padding-left: 3px;
+}
+#roll-dialog .roll-group .plus {
+  padding-right: 3px;
+}

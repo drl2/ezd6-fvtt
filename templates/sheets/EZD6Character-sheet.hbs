@@ -1,0 +1,394 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" class="charimage" />
+
+
+        <div class="header-details">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'EZD6.HeroName'}}" />
+            </h1>
+
+
+            <div class="header-stats">
+                <div>
+                    {{localize 'EZD6.HeroPath'}}:
+                    {{#each heropath as |item id|}}
+                    <span class="important-stat item" data-item-id="{{item._id}}">{{item.name}}
+                    &nbsp;
+                            <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}" data-type="heropath">
+                                <i class="fas fa-edit"></i></a>     
+                            <a class="item-control item-chat" title="{{localize 'EZD6.ShowDesc'}}"
+                                            data-type="heropath"><i class="fas fa-info-circle"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"  data-type="heropath">
+                                <i class="fas fa-trash"></i></a>
+                    </span>
+                    {{/each}}
+                    {{#unless data.hasPath }}
+                        <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                            data-type="heropath"><i class="fas fa-plus"></i></a>
+                    {{/unless}}
+                </div>
+
+                <div>
+                    {{localize 'EZD6.Species'}}:
+                    {{#each species as |item id|}}
+                    <span class="important-stat item" data-item-id="{{item._id}}">{{item.name}}
+                    &nbsp;
+                            <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}" data-type="species">
+                                <i class="fas fa-edit"></i></a>     
+                            <a class="item-control item-chat" title="{{localize 'EZD6.ShowDesc'}}"
+                                            data-type="species"><i class="fas fa-info-circle"></i></a>
+                            <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"  data-type="species">
+                                <i class="fas fa-trash"></i></a>
+                    </span>
+                    {{/each}}
+                    {{#unless data.hasSpecies }}
+                        <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                            data-type="species"><i class="fas fa-plus"></i></a>
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="sheet-body">
+        <div class="body-outer-grid">
+            <div>
+                <!-- hero path boons -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'EZD6.Boons'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="boon"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                    {{#each boon as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="boon"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+
+                <!-- hero path features -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'EZD6.HeroFeatures'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="feature"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                    {{#each feature as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="feature"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+
+                <!-- inclinations -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'EZD6.Inclinations'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="inclination"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                    {{#each inclination as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="inclination"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+
+                <!-- aspects -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'EZD6.Aspects'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="aspect"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                    {{#each aspect as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="aspect"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+
+                <!-- Circle -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'ITEM.TypeCircle'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="circle"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                    {{#each circle as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="circle"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+
+
+                <!-- equipment -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'ITEM.TypeEquipment'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="equipment"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                        {{#if hasWeapons}}
+                            <li class="flexrow equip-header">{{localize 'EZD6.Weapons'}}</li>
+
+                            {{#each equipment_weapons as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <h4 class="item-name">
+                                    <a class="item-control item-chat" data-type="equipment"
+                                        title="{{localize 'EZD6.ShowDesc'}}">
+                                        {{item.name}}
+                                    </a>
+                                </h4>
+                                <div class="item-controls action-col">
+                                    <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                            class="fas fa-trash"></i></a>
+                                </div>
+                            </li>
+                            {{/each}}
+
+                        {{/if}}
+
+                        {{#if hasPotions}}
+                            <li class="flexrow equip-header">{{localize 'EZD6.Potions'}}</li>
+
+                            {{#each equipment_potions as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <h4 class="item-name">
+                                    <a class="item-control item-chat" data-type="equipment"
+                                        title="{{localize 'EZD6.ShowDesc'}}">
+                                        {{item.name}}
+                                    </a>
+                                    (<a class="item-control item-minus qty-plusminus">-</a>
+                                    {{item.data.quantity}}
+                                    <a class="item-control item-plus  qty-plusminus">+</a>)
+                                </h4>
+                                <div class="item-controls action-col">
+                                    <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                            class="fas fa-trash"></i></a>
+                                </div>
+                            </li>
+                            {{/each}}
+
+                        {{/if}}
+
+                        {{#if hasScrolls}}
+                            <li class="flexrow equip-header">{{localize 'EZD6.Scrolls'}}</li>
+
+                            {{#each equipment_scrolls as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <h4 class="item-name">
+                                    <a class="item-control item-chat" data-type="equipment"
+                                        title="{{localize 'EZD6.ShowDesc'}}">
+                                        {{item.name}}
+                                    </a>
+                                    (<a class="item-control item-minus qty-plusminus">-</a>
+                                    {{item.data.quantity}}
+                                    <a class="item-control item-plus  qty-plusminus">+</a>)
+                                </h4>
+                                <div class="item-controls action-col">
+                                    <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                            class="fas fa-trash"></i></a>
+                                </div>
+                            </li>
+                            {{/each}}
+                        {{/if}}
+
+                        {{#if hasGear}}
+                            <li class="flexrow equip-header">{{localize 'EZD6.Gears'}}</li>
+
+                            {{#each equipment_gear as |item id|}}
+                            <li class="item flexrow" data-item-id="{{item._id}}">
+                                <h4 class="item-name">
+                                    <a class="item-control item-chat" data-type="equipment"
+                                        title="{{localize 'EZD6.ShowDesc'}}">
+                                        {{item.name}}
+                                    </a>
+                                    (<a class="item-control item-minus qty-plusminus">-</a>
+                                    {{item.data.quantity}}
+                                    <a class="item-control item-plus  qty-plusminus">+</a>)
+                                </h4>
+                                <div class="item-controls action-col">
+                                    <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                            class="fas fa-trash"></i></a>
+                                </div>
+                            </li>
+                            {{/each}}
+
+                        {{/if}}
+
+                        {{#each equipment as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="equipment"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                                ({{item.data.quantity}})
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ol>
+
+            </div>
+            <div>
+                <div class="right-col">
+                    <div>
+                    <span class="headertext">{{localize 'EZD6.Health'}}</span>
+                    </div>
+                    <div>
+                    <input name="data.strikes.value" type="number" value="{{data.strikes.value}}" />/
+                    <input name="data.strikes.max" type="number" value="{{data.strikes.max}}" />
+                    </div>
+                    <div>
+                    <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.Armor'}}</span>
+                    </div>
+                    <div>
+                        <input name="data.armortype" type="text" value="{{data.armortype}}" />
+                    </div>
+                    <div>
+                        {{localize 'EZD6.WoundSave'}} 
+                        <input name="data.armorsave" type="number" value="{{data.armorsave}}" />
+                        <a class="item-control doroll" data-rolltype="armor" title="{{localize 'EZD6.RollSave'}}"><i class="fas fa-dice-six"></i></a>                 
+                    </div>
+                    <div><span class="subtext">{{localize 'EZD6.RollToIgnore'}}</span></div>
+                    <div>
+                        {{localize 'EZD6.Miraculous'}} 
+                        <input name="data.miraculoussave" type="number" value="{{data.miraculoussave}}" />
+                        <a class="item-control doroll" data-rolltype="miraculous" title="{{localize 'EZD6.RollSave'}}"><i class="fas fa-dice-six"></i></a> 
+                    </div> 
+                </div>
+
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
+                        <input name="data.tohit" type="number" value="{{data.tohit}}" />
+                        <a class="item-control doroll" data-rolltype="tohit" title="{{localize 'EZD6.RollAttack'}}"><i class="fas fa-dice-six"></i></a> 
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.Karma'}}:</span>&nbsp;
+                        <a class="item-control minus" data-field="karma"><i class="fas fa-minus"></i></a>
+                        <input name="data.karma" type="number" value="{{data.karma}}" />
+                        <a class="item-control plus" data-field="karma"><i class="fas fa-plus"></i></a>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.HeroDice'}}:</span>&nbsp;
+                        <input name="data.herodice" type="number" value="{{data.herodice}}" />
+                        <a class="item-control plus" data-field="herodice"><i class="fas fa-plus"></i></a>
+                        <a class="item-control herodieroll" data-rolltype="herodie" title="{{localize 'EZD6.RollHeroDie'}}"><i class="fas fa-dice-six"></i></a>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div><span class="headertext">{{localize 'EZD6.Wealth'}}:</span></div>
+                    <div>
+                        <select name="data.wealth">
+                            {{#select data.wealth}}
+                            {{#each config.WealthLevels as |name|}}
+                            <option value="{{name}}">{{localize name}}</option>
+                            {{/each}}
+                            {{/select}}                       
+                        </select>               
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</form>

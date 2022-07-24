@@ -7,14 +7,17 @@
             "value": 3,
             "max": 3
           },
-          "to-hit": 3
+          "tohit": 3
         }
       },
       "character": {
         "templates": ["base"],
-        "armor": 0,
+        "armortype": "",
+        "armorsave": 5,
+        "miraculoussave": 5,
         "karma": 0,
-        "hero-die": 1
+        "herodice": 1,
+        "wealth": "WEALTH.Moderate"
       },
       "monster": {
         "templates": ["base"]
@@ -22,14 +25,44 @@
     },
     "Item": {
       "types": [
-        "hero-path",
+        "heropath",
         "species",
         "boon",
         "feature",
         "inclination",
         "aspect",
         "circle",
-        "equipment"
-      ]
+        "equipment",
+        "monsterfeature"
+      ],
+      "heropath": {
+        "description": ""
+      },
+      "species": {
+        "description": ""
+      },
+      "boon": {
+        "description": ""
+      },
+      "feature": {
+        "description": ""
+      },
+      "inclination": {
+        "description": ""
+      },
+      "aspect": {
+        "description": ""
+      },
+      "circle": {
+        "description": ""
+      },
+      "equipment": {
+        "description": "",
+        "equipmenttype": "EQUIPMENT.Gear",
+        "quantity": 1
+      },
+      "monsterfeature": {
+        "description": ""
+      }
     }
 }
