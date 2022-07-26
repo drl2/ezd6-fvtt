@@ -62,7 +62,7 @@ export default class EZActor extends Actor {
                 break;
         }
 
-
+/* put next & success/fail back in, but only for saves! */
 
         const dlg = new Dialog({
             title: title,
@@ -91,6 +91,7 @@ export default class EZActor extends Actor {
         async function rollCallback(html) {
             let numDice = 1;
             let modifier = "";
+            let rollText = "1 " + game.i18n.localize("EZD6.Die");
             let boon = html.find('[name="boonbane"]')[0].value.trim();
 
             if (boon != "") {
@@ -98,22 +99,23 @@ export default class EZActor extends Actor {
                 numDice += Math.abs(boon);
 
                 if (boon < 0) {
+                    rollText = numDice + " " + game.i18n.localize("EZD6.Dice") + " " + game.i18n.localize("EZD6.with") + " " + game.i18n.localize("EZD6.Bane"); 
                     modifier = "kl";
                 }
                 else if (boon > 0) {
+                    rollText = numDice + " " + game.i18n.localize("EZD6.Dice") + " " + game.i18n.localize("EZD6.with") + " " + game.i18n.localize("EZD6.Boon"); 
                     modifier = "kh";
                 }
             }
 
             const formula = numDice + "d6" + modifier;
             const diceRoll = await new Roll(formula).evaluate({ async: true });
-            const rollHTML = await diceRoll.render();
-            const rollResult = ((diceRoll.total >= targetNum) ? game.i18n.localize("EZD6.Success") : game.i18n.localize("EZD6.RollFailed")) + "!";
+            let rollHTML = await diceRoll.render();
+            rollHTML = rollHTML.replace(formula, rollText);
 
             const rollData = {
                 rollType: actionText,
-                rollHTML: rollHTML,
-                rollResult: rollResult
+                rollHTML: rollHTML
             };
             
             let cardContent = await renderTemplate("systems/ezd6/templates/chatcards/normalroll.hbs", rollData);
@@ -155,5 +157,44 @@ export default class EZActor extends Actor {
 
     }
 
+    async rollCast(dataset) {
+        const dlgContent = await renderTemplate("systems/ezd6/templates/dialogs/cast.hbs", dataset);
+        let title = game.i18n.localize("EZD6.Roll");
+        let actionText = "";
 
+        switch (dataset.rolltype) {
+            case 'cast':
+                title = game.i18n.localize("EZD6.RollCast");
+                actionText = this.name + " " + game.i18n.localize("EZD6.castsaspell");
+                break;
+            case 'miracle':
+                title = game.i18n.localize("EZD6.RollMiracle");
+                actionText = this.name + " " + game.i18n.localize("EZD6.praysforamiracle");
+                break;
+        }
+
+        const dlg = new Dialog({
+            title: title,
+            content: dlgContent,
+            buttons:{
+                roll: {
+                    icon: "<i class='fas fa-dice-d6'></i>",
+                    label: game.i18n.localize("EZD6.Roll"),
+                    callback: (html) => rollCallback(html)
+                },
+                cancel: {
+                    icon: "<i class='fas fa-times'></i>",
+                    label: game.i18n.localize("EZD6.Cancel")
+                }
+            },
+            default: "roll",
+        },
+        {
+            id: "roll-dialog"
+        }
+        );
+
+        dlg.render(true);
+
+    }
 }

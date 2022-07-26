@@ -7,6 +7,11 @@ EZD6.EquipmentTypes = {
     scroll: "EQUIPMENT.Scroll"
 }
 
+EZD6.BoonTypes = {
+    species: "BOONTYPES.Species",
+    heropath: "BOONTYPES.Heropath"
+}
+
 EZD6.WealthLevels = {
     pauper: "WEALTH.Pauper",
     cashpoor: "WEALTH.CashPoor",

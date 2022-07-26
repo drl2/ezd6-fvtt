@@ -15,7 +15,7 @@
         "armortype": "",
         "armorsave": 5,
         "miraculoussave": 5,
-        "karma": 0,
+        "karma": 3,
         "herodice": 1,
         "wealth": "WEALTH.Moderate"
       },
@@ -42,7 +42,8 @@
         "description": ""
       },
       "boon": {
-        "description": ""
+        "description": "",
+        "boontype": "BOONTYPES.Heropath"
       },
       "feature": {
         "description": ""

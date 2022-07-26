@@ -44,6 +44,9 @@ export default class EZD6CharacterSheet extends ActorSheet {
         html.find('.item-plus').click(this._onItemPlusClick.bind(this));
         html.find('.doroll').click(this._onRoll.bind(this));
         html.find('.herodieroll').click(this._onHeroRoll.bind(this));
+        html.find('.roll-cast').click(this._onRollCast.bind(this));
+
+        
     }
 
     _prepareItems(sheetData) {
@@ -303,5 +306,13 @@ export default class EZD6CharacterSheet extends ActorSheet {
             const dataset = element.dataset;
             await this.actor.rollHeroDie(dataset);
         }
+    }
+
+    async _onRollCast(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+
+        await this.actor.rollCast(dataset);
     }
 }

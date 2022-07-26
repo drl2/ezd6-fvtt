@@ -33,7 +33,27 @@
                 </div>
             </div>
         {{/if}}
-            
+
+
+        {{#if isBoon}}
+            <div class="equipment">
+                <div>
+                    {{localize 'EZD6.Type'}}: 
+
+                    <select name="data.boontype">
+                        {{#select data.boontype}}
+                        {{#each ezd6.BoonTypes as |name type|}}
+                        <option value="{{name}}">{{localize name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </div>
+                <div>
+                </div>
+            </div>
+        {{/if}}
+
+
         <div class="desccolumn">
             {{localize 'EZD6.Description'}}
             <textarea class="desctext" name="data.description">{{data.description}}</textarea>

@@ -71,6 +71,7 @@
                                     {{item.name}}
                                 </a>
                             </h4>
+                            <div class="item-name">{{localize item.data.boontype}}</div>
                             <div class="item-controls action-col">
                                 <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
                                         class="fas fa-edit"></i></a>
@@ -351,10 +352,24 @@
 
                 <div class="right-col">
                     <div>
-                        <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
-                        <input name="data.tohit" type="number" value="{{data.tohit}}" />
+                        <span class="headertext">{{localize 'EZD6.Attack'}}</span>
                         <a class="item-control doroll" data-rolltype="tohit" title="{{localize 'EZD6.RollAttack'}}"><i class="fas fa-dice-six"></i></a> 
                     </div>
+                </div>
+
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.Magic'}}</span>
+                    </div>
+                    <div>
+                        {{localize 'EZD6.Spell'}}
+                        <a class="item-control roll-cast" data-rolltype="spell" title="{{localize 'EZD6.RollSpell'}}"><i class="fas fa-dice-six"></i></a> 
+                    </div>
+                    <div>
+                        {{localize 'EZD6.Miracle'}}
+                        <a class="item-control roll-cast" data-rolltype="miracle" title="{{localize 'EZD6.RollMiracle'}}"><i class="fas fa-dice-six"></i></a> 
+                    </div>
+
                 </div>
 
                 <div class="right-col">
