@@ -24,7 +24,8 @@ export default class EZD6ItemSheet extends ItemSheet {
             data: baseData.item.data.data,
             isowned: isOwned,
             ezd6: EZD6,
-            isEquipment: baseData.item.type === "equipment"
+            isEquipment: baseData.item.type === "equipment",
+            isBoon: baseData.item.type === "boon"
         }
         sheetData.itemType = game.i18n.localize(`ITEM.Type${sheetData.item.data.type.titleCase()}`)
 

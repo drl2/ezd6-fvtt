@@ -6,7 +6,7 @@
     "ITEM": {
         "TypeHeropath": "Hero Path",
         "TypeSpecies": "Species",
-        "TypeBoon": "Hero Path Boon",
+        "TypeBoon": "Boon",
         "TypeFeature": "Hero Path Feature",
         "TypeInclination": "Inclination",
         "TypeAspect": "Aspect",
@@ -19,6 +19,10 @@
         "Potion": "Potion",
         "Scroll": "Scroll",
         "Weapon": "Weapon"
+    },
+    "BOONTYPES": {
+        "Species": "Species",
+        "Heropath": "Hero Path"
     },
     "WEALTH": {
         "Pauper": "Pauper",
@@ -65,13 +69,13 @@
         "Quantity": "Quantity",
         "NewHeroPath": "New Hero Path",
         "NewSpecies": "New Species",
-        "NewBoon": "New Hero Path Boon",
+        "NewBoon": "New Boon",
         "NewFeature": "New Hero Path Feature",
         "NewInclination": "New Inclination",
         "NewAspect": "New Aspect",
         "NewCircle": "New Circle of Sorcery",
         "NewEquipment": "New Equipment",
-        "NewMonsterfeature": "New Monster Feature",
+        "NewMonsterFeature": "New Monster Feature",
         "Weapons": "Weapons",
         "Potions": "Potions",
         "Scrolls": "Scrolls",
@@ -86,7 +90,19 @@
         "Needs": "Needs",
         "Success": "Success",
         "RollFailed": "Roll failed",
-        "RollsAHeroDie": "Rolls a Hero die"
+        "RollsAHeroDie": "Rolls a Hero die",
+        "Magic": "Magic",
+        "Spell": "Spell",
+        "Miracle": "Miracle",
+        "RollCast": "Roll to cast a spell",
+        "RollMiracle": "Roll to pray for a miracle",
+        "castsaspell": "casts a spell",
+        "praysforamiracle": "prays for a miracle",
+        "Attack": "Attack",
+        "with": "with",
+        "DiceToRoll": "Dice to roll",
+        "KeepHighest": "Keep Highest",
+        "MonsterFeatures": "Features"
     }
 }
 

@@ -44,6 +44,9 @@ export default class EZD6CharacterSheet extends ActorSheet {
         html.find('.item-plus').click(this._onItemPlusClick.bind(this));
         html.find('.doroll').click(this._onRoll.bind(this));
         html.find('.herodieroll').click(this._onHeroRoll.bind(this));
+        html.find('.roll-cast').click(this._onRollCast.bind(this));
+
+        
     }
 
     _prepareItems(sheetData) {
@@ -58,7 +61,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
         const equipment_potions = [];
         const equipment_weapons = [];
         const equipment_scrolls = [];
-        const monsterfeature = [];
+        const monsterfeatures = [];
 
         for (let i of sheetData.items) {
             i.img = i.img || DEFAULT_TOKEN;
@@ -110,7 +113,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
             }
 
             if (i.type === 'monsterfeature') {
-                monsterfeature.push(i);
+                monsterfeatures.push(i);
             }
 
             sheetData.heropath = heropath;
@@ -124,7 +127,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
             sheetData.equipment_potions = equipment_potions;
             sheetData.equipment_weapons = equipment_weapons;
             sheetData.equipment_scrolls = equipment_scrolls;
-            sheetData.monsterfeature = monsterfeature;
+            sheetData.monsterfeatures = monsterfeatures;
 
             sheetData.hasGear = (equipment_gear.length > 0);
             sheetData.hasPotions = (equipment_potions.length > 0);
@@ -137,6 +140,12 @@ export default class EZD6CharacterSheet extends ActorSheet {
     async _onDropItemCreate(itemData) {
         const actorData = this.actor.data.data;
 
+        if (this.actor.type === "character") {
+            if (itemData.type === "monsterfeature") {return false;}
+        } else
+        {
+            if (itemData.type !== "monsterfeature") {return false;}
+        }
         if (itemData.type === 'heropath') {
             if (actorData.hasPath) {
                 return false;
@@ -226,8 +235,8 @@ export default class EZD6CharacterSheet extends ActorSheet {
             case 'equipment':
                 itemName = game.i18n.localize("EZD6.NewEquipment");
                 break;
-            default:
-                console.log('Add item with no item type defined')
+            case 'monsterfeature':
+                itemName = game.i18n.localize("EZD6.NewMonsterFeature");
                 break;
         }
 
@@ -303,5 +312,13 @@ export default class EZD6CharacterSheet extends ActorSheet {
             const dataset = element.dataset;
             await this.actor.rollHeroDie(dataset);
         }
+    }
+
+    async _onRollCast(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+
+        await this.actor.rollCast(dataset);
     }
 }

@@ -1,0 +1,26 @@
+<form>
+	<div class="form-group roll-group">
+        <div>
+        {{localize 'EZD6.DiceToRoll'}}: &nbsp;
+        <a class="item-control" data-field="karma" onclick="handleSpellDiceDecrement()"><i class="fas fa-minus"></i></a>
+        <input id="numdice" name="numdice" type="number" data-dtype="Number" value="1">
+        <a class="item-control" data-field="karma" onclick="handleSpellDiceIncrement()"><i class="fas fa-plus"></i></a>
+        </div>
+        
+    </div>
+</form>
+
+<script>
+    bbField = document.getElementById("numdice");
+    var count = bbField.value;
+
+    function handleSpellDiceIncrement() {
+        count++;
+        bbField.value = count;
+    };
+
+    function handleSpellDiceDecrement() {
+        count = (--count > 1) ? count : 1;
+        bbField.value = count;
+    };
+</script>
