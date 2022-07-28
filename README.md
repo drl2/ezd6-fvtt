@@ -9,6 +9,8 @@ Foundry VTT system for playing Scotty McFarland's EZD6.
 ## The Game
 [EZD6](https://www.drivethrurpg.com/product/397599/EZD6-Core-Rulebook?affiliate_id=1692486) by Scotty McFarland (a.k.a. "DM Scotty") is "A rules-light D6 RPG system that puts creativity over complexity, but delivers a suprising amount of variation and mechanical wiggle".
 
+This code is an open source project unaffiliated with the game.
+
 ## Using this System
 In keeping with the simplicty of the EZD6 system, automation is minimal - it's really not needed here and could get in the way!
 
