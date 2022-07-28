@@ -37,7 +37,7 @@ export default class EZActor extends Actor {
     async doRoll(dataset) {
         const dlgContent = await renderTemplate("systems/ezd6/templates/dialogs/rolls.hbs", dataset);
         let title = game.i18n.localize("EZD6.Roll");
-        let targetNum = 3;
+        let targetNum = 0;
         let target = null;
         let actionText = "";
 
@@ -49,7 +49,6 @@ export default class EZActor extends Actor {
                 break;
             case 'tohit':
                 title = game.i18n.localize("EZD6.ToHitRoll");
-                targetNum = this.data.data.tohit;
                 if (game.user.targets.size > 0) {
                     target = Array.from(game.user.targets)[0];
                 }
@@ -61,8 +60,6 @@ export default class EZActor extends Actor {
                 targetNum = this.data.data.miraculoussave;
                 break;
         }
-
-/* put next & success/fail back in, but only for saves! */
 
         const dlg = new Dialog({
             title: title,
@@ -91,19 +88,21 @@ export default class EZActor extends Actor {
         async function rollCallback(html) {
             let numDice = 1;
             let modifier = "";
-            let rollText = "1 " + game.i18n.localize("EZD6.Die");
+            let rollText = "1d6";
             let boon = html.find('[name="boonbane"]')[0].value.trim();
+            let needs = "";
+            let rollResults = "";
 
             if (boon != "") {
                 boon = Number.parseInt(boon);
                 numDice += Math.abs(boon);
 
                 if (boon < 0) {
-                    rollText = numDice + " " + game.i18n.localize("EZD6.Dice") + " " + game.i18n.localize("EZD6.with") + " " + game.i18n.localize("EZD6.Bane"); 
+                    rollText = numDice + "d6 " + game.i18n.localize("EZD6.with") + " " + game.i18n.localize("EZD6.Bane"); 
                     modifier = "kl";
                 }
                 else if (boon > 0) {
-                    rollText = numDice + " " + game.i18n.localize("EZD6.Dice") + " " + game.i18n.localize("EZD6.with") + " " + game.i18n.localize("EZD6.Boon"); 
+                    rollText = numDice + "d6 " + game.i18n.localize("EZD6.with") + " " + game.i18n.localize("EZD6.Boon"); 
                     modifier = "kh";
                 }
             }
@@ -113,9 +112,18 @@ export default class EZActor extends Actor {
             let rollHTML = await diceRoll.render();
             rollHTML = rollHTML.replace(formula, rollText);
 
+            
+            if (targetNum) {  // for saves, show needs & results
+                needs = game.i18n.localize("EZD6.Needs") + " " + targetNum + "+";
+                rollResults = ((diceRoll.total >= targetNum) ? game.i18n.localize("EZD6.Success") : game.i18n.localize("EZD6.RollFailed")) + "!"
+            }
+
+
             const rollData = {
                 rollType: actionText,
-                rollHTML: rollHTML
+                rollHTML: rollHTML,
+                needs: needs,
+                rollResults: rollResults
             };
             
             let cardContent = await renderTemplate("systems/ezd6/templates/chatcards/normalroll.hbs", rollData);
@@ -163,7 +171,7 @@ export default class EZActor extends Actor {
         let actionText = "";
 
         switch (dataset.rolltype) {
-            case 'cast':
+            case 'spell':
                 title = game.i18n.localize("EZD6.RollCast");
                 actionText = this.name + " " + game.i18n.localize("EZD6.castsaspell");
                 break;
@@ -195,6 +203,40 @@ export default class EZActor extends Actor {
         );
 
         dlg.render(true);
+
+
+        async function rollCallback(html) {
+            const numDice = html.find('[name="numdice"]')[0].value.trim();
+            const formula = numDice + "d6kh";
+
+            const diceRoll = await new Roll(formula).evaluate({ async: true });
+            let rollHTML = await diceRoll.render();
+
+            console.warn(diceRoll.dice[0].results.filter(r => {return r.result === 1}));
+            console.warn(diceRoll.dice[0].results);
+
+            const rollResults = ((diceRoll.dice[0].results.filter(r => {return r.result === 1}).length > 0) ? game.i18n.localize("EZD6.RollFailed") : game.i18n.localize("EZD6.Success")) + "!";
+
+            rollHTML = rollHTML.replace("dice-tooltip", "dice-tooltip expanded");
+            rollHTML = rollHTML.replace(formula, formula.replace("kh", ", " + game.i18n.localize("EZD6.KeepHighest")));
+
+            const rollData = {
+                rollType: title,
+                rollHTML: rollHTML,
+                rollResults: rollResults
+            };
+
+            let cardContent = await renderTemplate("systems/ezd6/templates/chatcards/normalroll.hbs", rollData);
+      
+            const chatOptions = {
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+                roll: diceRoll,
+                content: cardContent,
+                speaker: ChatMessage.getSpeaker({ actor: this })
+            }
+    
+            ChatMessage.create(chatOptions);
+        }
 
     }
 }
