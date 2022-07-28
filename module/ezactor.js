@@ -47,7 +47,7 @@ export default class EZActor extends Actor {
                 actionText = game.i18n.localize("EZD6.WoundSave") + " " + game.i18n.localize("EZD6.for") + " " + this.name;
                 targetNum = this.data.data.armorsave;
                 break;
-            case 'tohit':
+            case 'attack':
                 title = game.i18n.localize("EZD6.ToHitRoll");
                 if (game.user.targets.size > 0) {
                     target = Array.from(game.user.targets)[0];
@@ -117,7 +117,6 @@ export default class EZActor extends Actor {
                 needs = game.i18n.localize("EZD6.Needs") + " " + targetNum + "+";
                 rollResults = ((diceRoll.total >= targetNum) ? game.i18n.localize("EZD6.Success") : game.i18n.localize("EZD6.RollFailed")) + "!"
             }
-
 
             const rollData = {
                 rollType: actionText,

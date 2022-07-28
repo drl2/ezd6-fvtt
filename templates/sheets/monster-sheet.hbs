@@ -13,8 +13,67 @@
     </header>
 
     <section class="sheet-body">
- 
+         <div class="body-outer-grid">
+            <div>
+                <!-- monster features -->
+                <ol class="item-list">
+                    <li class="item flexrow item-header">
+                            <div class="item-points header-text">{{localize 'EZD6.MonsterFeatures'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
+                                    data-type="monsterfeature"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
+                            </div>
+                    </li>
+                    {{#each monsterfeatures as |item id|}}
+                        <li class="item flexrow" data-item-id="{{item._id}}">
+                            <h4 class="item-name">
+                                <a class="item-control item-chat" data-type="monsterfeature"
+                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                    {{item.name}}
+                                </a>
+                            </h4>
+                            <div class="item-controls action-col">
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
+                                        class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
+                                        class="fas fa-trash"></i></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ol>
+            </div>
+
+            <div>
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
+                    </div>
+                    <div>
+                        <input name="data.tohit" type="number" value="{{data.tohit}}" />
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <div>
+                    <span class="headertext">{{localize 'EZD6.Health'}}</span>
+                    </div>
+                    <div>
+                    <input name="data.strikes.value" type="number" value="{{data.strikes.value}}" />/
+                    <input name="data.strikes.max" type="number" value="{{data.strikes.max}}" />
+                    </div>
+                    <div>
+                    <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>
+                    </div>
+                </div>
 
 
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.Attack'}}</span>
+                        <a class="item-control doroll" data-rolltype="attack" title="{{localize 'EZD6.RollAttack'}}"><i class="fas fa-dice-six"></i></a> 
+                    </div>
+                </div>
+               </div>
+        </div>
     </section>
 </form>

@@ -75,7 +75,7 @@
         "NewAspect": "New Aspect",
         "NewCircle": "New Circle of Sorcery",
         "NewEquipment": "New Equipment",
-        "NewMonsterfeature": "New Monster Feature",
+        "NewMonsterFeature": "New Monster Feature",
         "Weapons": "Weapons",
         "Potions": "Potions",
         "Scrolls": "Scrolls",
@@ -101,7 +101,8 @@
         "Attack": "Attack",
         "with": "with",
         "DiceToRoll": "Dice to roll",
-        "KeepHighest": "Keep Highest"
+        "KeepHighest": "Keep Highest",
+        "MonsterFeatures": "Features"
     }
 }
 
