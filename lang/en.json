@@ -22,7 +22,8 @@
     },
     "BOONTYPES": {
         "Species": "Species",
-        "Heropath": "Hero Path"
+        "Heropath": "Hero Path",
+        "Other": "Other"
     },
     "WEALTH": {
         "Pauper": "Pauper",
@@ -34,6 +35,9 @@
     },
     "MESSAGES": {
         "NoHeroDice": "No hero dice available!"
+    },
+    "WARNINGS": {
+        "NoActorSelected": "No actor selected"
     },
     "EZD6": {
         "HeroPath": "Hero Path",
@@ -90,19 +94,24 @@
         "Needs": "Needs",
         "Success": "Success",
         "RollFailed": "Roll failed",
-        "RollsAHeroDie": "Rolls a Hero die",
+        "RollsAHeroDie": "rolls a Hero die",
         "Magic": "Magic",
         "Spell": "Spell",
         "Miracle": "Miracle",
         "RollCast": "Roll to cast a spell",
         "RollMiracle": "Roll to pray for a miracle",
-        "castsaspell": "casts a spell",
+        "castsaspell": "tries to cast a spell",
         "praysforamiracle": "prays for a miracle",
         "Attack": "Attack",
         "with": "with",
         "DiceToRoll": "Dice to roll",
         "KeepHighest": "Keep Highest",
-        "MonsterFeatures": "Features"
+        "MonsterFeatures": "Features",
+        "Done": "Done",
+        "HasActed": "Toggle if action complete for this turn",
+        "TaskCheck": "Task Check",
+        "RollTaskCheck": "Roll a Task Check",
+        "RollsTaskCheck": "rolls a Task Check"
     }
 }
 

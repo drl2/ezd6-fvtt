@@ -3,7 +3,10 @@ import EZD6CharacterSheet from "./sheets/EZD6CharacterSheet.js";
 import EZD6ItemSheet from "./sheets/EZD6ItemSheet.js";
 import EZActor from "./ezactor.js";
 import EZItem from './ezitem.js';
-
+import EZCombatTracker from "./ezcombatTracker.js";
+import EZCombatant from "./ezcombatant.js";
+import EZCombat from "./ezcombat.js";
+import * as Macros from './macros.js';
 
 Hooks.once("init", function() {
     console.log("***** EZD6 initializing   *********");
@@ -13,12 +16,23 @@ Hooks.once("init", function() {
 
     CONFIG.Actor.documentClass = EZActor;
     CONFIG.Item.documentClass = EZItem;
+    CONFIG.Combatant.documentClass = EZCombatant;
+    CONFIG.ui.combat = EZCombatTracker;
+    CONFIG.Combat.documentClass = EZCombat;
+
+    game.ezd6 = {
+        macros: Macros,
+        rollTask: Macros.rollTask,
+        rollCast: Macros.rollCast,
+        rollHeroDie: Macros.rollHeroDie
+    }
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet(game.system.id, EZD6CharacterSheet, {makeDefault: true });
     
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet(game.system.id, EZD6ItemSheet, {makeDefault: true });
+
 });
 
 

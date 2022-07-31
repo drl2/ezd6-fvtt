@@ -42,7 +42,7 @@ export default class EZActor extends Actor {
         let actionText = "";
 
         switch (dataset.rolltype) {
-            case 'armor':
+            case 'wound':
                 title = game.i18n.localize("EZD6.WoundSave");
                 actionText = game.i18n.localize("EZD6.WoundSave") + " " + game.i18n.localize("EZD6.for") + " " + this.name;
                 targetNum = this.data.data.armorsave;
@@ -58,6 +58,10 @@ export default class EZActor extends Actor {
                 title = game.i18n.localize("EZD6.MiraculousSave");
                 actionText = game.i18n.localize("EZD6.MiraculousSave") + " " + game.i18n.localize("EZD6.for") + " " + this.name;
                 targetNum = this.data.data.miraculoussave;
+                break;
+            case 'task':
+                title = game.i18n.localize("EZD6.RollTaskCheck");
+                actionText = this.name + " " + game.i18n.localize("EZD6.RollsTaskCheck") 
                 break;
         }
 
@@ -140,28 +144,32 @@ export default class EZActor extends Actor {
     };
 
     async rollHeroDie(dataset) {
-        const title = this.name + " " + game.i18n.localize("EZD6.RollsAHeroDie") + "!";
-        const diceRoll = await new Roll("1d6").evaluate({ async: true });
-        const rollHTML = await diceRoll.render();
-
-        const rollData = {
-            rollType: title,
-            rollHTML: rollHTML,
-        };
-
-        let cardContent = await renderTemplate("systems/ezd6/templates/chatcards/herodieroll.hbs", rollData);
-        
-        const chatOptions = {
-            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-            roll: diceRoll,
-            content: cardContent,
-            speaker: ChatMessage.getSpeaker({ actor: this })
+        if (this.data.data.herodice === 0) {
+            ui.notifications.info(game.i18n.localize("MESSAGES.NoHeroDice"));
         }
+        else {
+            const title = this.name + " " + game.i18n.localize("EZD6.RollsAHeroDie") + "!";
+            const diceRoll = await new Roll("1d6").evaluate({ async: true });
+            const rollHTML = await diceRoll.render();
 
-        ChatMessage.create(chatOptions);
+            const rollData = {
+                rollType: title,
+                rollHTML: rollHTML,
+            };
 
-        await this.update({"data.herodice": --this.data.data.herodice});
+            let cardContent = await renderTemplate("systems/ezd6/templates/chatcards/herodieroll.hbs", rollData);
+            
+            const chatOptions = {
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+                roll: diceRoll,
+                content: cardContent,
+                speaker: ChatMessage.getSpeaker({ actor: this })
+            }
 
+            ChatMessage.create(chatOptions);
+
+            await this.update({"data.herodice": --this.data.data.herodice});
+        }
     }
 
     async rollCast(dataset) {
@@ -211,16 +219,13 @@ export default class EZActor extends Actor {
             const diceRoll = await new Roll(formula).evaluate({ async: true });
             let rollHTML = await diceRoll.render();
 
-            console.warn(diceRoll.dice[0].results.filter(r => {return r.result === 1}));
-            console.warn(diceRoll.dice[0].results);
-
             const rollResults = ((diceRoll.dice[0].results.filter(r => {return r.result === 1}).length > 0) ? game.i18n.localize("EZD6.RollFailed") : game.i18n.localize("EZD6.Success")) + "!";
 
             rollHTML = rollHTML.replace("dice-tooltip", "dice-tooltip expanded");
             rollHTML = rollHTML.replace(formula, formula.replace("kh", ", " + game.i18n.localize("EZD6.KeepHighest")));
 
             const rollData = {
-                rollType: title,
+                rollType: actionText,
                 rollHTML: rollHTML,
                 rollResults: rollResults
             };

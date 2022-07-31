@@ -9,7 +9,8 @@ EZD6.EquipmentTypes = {
 
 EZD6.BoonTypes = {
     species: "BOONTYPES.Species",
-    heropath: "BOONTYPES.Heropath"
+    heropath: "BOONTYPES.Heropath",
+    other: "BOONTYPES.Other"
 }
 
 EZD6.WealthLevels = {
@@ -42,5 +43,5 @@ EZD6.EquipmentTypeImages = {
 
 EZD6.ActorTypeImages = {
     character: "systems/ezd6/assets/icons/dmscotty_white_nobg.webp",
-    monster: "systems/ezd6/assets/icons/wyvern.svg"
+    monster: "systems/ezd6/assets/icons/wyvern.webp"
 }
