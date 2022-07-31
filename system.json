@@ -7,7 +7,7 @@
     "url": "https://github.com/drl2/ezd6-fvtt",
     "license": "LICENSE.txt",
     "flags": {},
-    "version": "0.8.0",
+    "version": "1.0.0",
     "minimumCoreVersion": "9",
     "compatibleCoreVersion": "9",
     "scripts": [],
@@ -31,5 +31,7 @@
     "download": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.zip",
     "protected": false,
     "gridDistance": 5,
-    "gridUnits": "ft"
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "strikes",
+    "secondaryTokenAttribute": "karma"
   }

@@ -302,16 +302,9 @@ export default class EZD6CharacterSheet extends ActorSheet {
     async _onHeroRoll(event) {
         event.preventDefault();
 
-        if (this.actor.data.data.herodice === 0)
-        {
-            ui.notifications.info(game.i18n.localize("MESSAGES.NoHeroDice"));
-        }
-        else 
-        {
-            const element = event.currentTarget;
-            const dataset = element.dataset;
-            await this.actor.rollHeroDie(dataset);
-        }
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+        await this.actor.rollHeroDie(dataset);
     }
 
     async _onRollCast(event) {
