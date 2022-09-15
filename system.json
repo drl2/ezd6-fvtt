@@ -1,5 +1,6 @@
 {
     "id": "ezd6",
+    "name": "ezd6",
     "title": "EZD6",
     "description": "A FoundryVTT system implementation of Scotty McFarland's EZD6 system",
     "author": "Don Lloyd",
@@ -8,6 +9,8 @@
     "license": "LICENSE.txt",
     "flags": {},
     "version": "1.0.1",
+    "minimumCoreVersion": "9",
+    "compatibleCoreVersion": "10",
     "compatibility": {
       "minimum": "9",
       "verified": "10",
