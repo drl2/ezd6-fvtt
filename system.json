@@ -8,8 +8,6 @@
     "license": "LICENSE.txt",
     "flags": {},
     "version": "1.0.1",
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "10",
     "compatibility": {
       "minimum": "9",
       "verified": "10"
