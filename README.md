@@ -38,6 +38,9 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
+### [1.0.1] - 2022-09-15
+- Minor config changes to suppress warning messages at startup on Foundry v10.  Currently still supports v9 but future versions will probably be v10 only.
+
 ### [1.0.0] - 2022-07-31
 - First full release
 - Simple initiative sorts players above monsters and provides checkmark toggles to keep track of who's acted already this turn.  Using Foundry settings to show to-hit values here is useful.
