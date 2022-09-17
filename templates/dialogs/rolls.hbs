@@ -1,13 +1,16 @@
 <form>
 	<div class="form-group roll-group">
         <div>
-        {{localize 'EZD6.Bane'}}
-            <a class="item-control minus" data-field="karma" onclick="handleDecrement()"><i class="fas fa-minus"></i></a>
-        <input id="boonbane" name="boonbane" type="number" data-dtype="Number" value="0">
-        <a class="item-control plus" data-field="karma" onclick="handleIncrement()"><i class="fas fa-plus"></i></a>
-        {{localize 'EZD6.Boon'}}
-        </div>
-        
+            {{localize 'EZD6.Bane'}}
+            <a class="item-control minus" data-field="karma" onclick="handleDecrement()">
+                <i class="fas fa-minus"></i>
+            </a>
+            <input id="boonbane" name="boonbane" type="number" data-dtype="Number" value="0">
+            <a class="item-control plus" data-field="karma" onclick="handleIncrement()">
+                <i class="fas fa-plus"></i>
+            </a>
+            {{localize 'EZD6.Boon'}}
+        </div> 
     </div>
 </form>
 
