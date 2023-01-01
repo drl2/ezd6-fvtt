@@ -1,14 +1,10 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="64" width="64" class="charimage" />
-
-
         <div class="header-details">
             <h1 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MP.Actor.CharName'}}" />
             </h1>
-
-
         </div>
     </header>
 
@@ -18,25 +14,28 @@
                 <!-- monster features -->
                 <ol class="item-list">
                     <li class="item flexrow item-header">
-                            <div class="item-points header-text">{{localize 'EZD6.MonsterFeatures'}}</div>
-                            <div class="item-controls action-col">
-                                <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}"
-                                    data-type="monsterfeature"><i class="fas fa-plus"></i> {{localize 'EZD6.AddButton'}}</a>
-                            </div>
+                        <div class="item-points header-text">{{localize 'EZD6.MonsterFeatures'}}</div>
+                        <div class="item-controls action-col">
+                            <a class="item-control item-create" title="{{localize 'EZD6.CreateItem'}}" data-type="monsterfeature">
+                                <i class="fas fa-plus"></i>
+                                {{localize 'EZD6.AddButton'}}
+                            </a>
+                        </div>
                     </li>
                     {{#each monsterfeatures as |item id|}}
                         <li class="item flexrow" data-item-id="{{item._id}}">
                             <h4 class="item-name">
-                                <a class="item-control item-chat" data-type="monsterfeature"
-                                    title="{{localize 'EZD6.ShowDesc'}}">
+                                <a class="item-control item-chat" data-type="monsterfeature" title="{{localize 'EZD6.ShowDesc'}}">
                                     {{item.name}}
                                 </a>
                             </h4>
                             <div class="item-controls action-col">
-                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}"><i
-                                        class="fas fa-edit"></i></a>
-                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}"><i
-                                        class="fas fa-trash"></i></a>
+                                <a class="item-control item-edit" title="{{localize 'EZD6.EditItem'}}">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="item-control item-delete" title="{{localize 'EZD6.DeleteItem'}}">
+                                    <i class="fas fa-trash"></i>
+                                </a>
                             </div>
                         </li>
                     {{/each}}
@@ -70,31 +69,34 @@
 
                 <div class="right-col">
                     <div>
-                    <span class="headertext">{{localize 'EZD6.Health'}}</span>
+                        <span class="headertext">{{localize 'EZD6.Health'}}</span>
                     </div>
                     <div>
                     <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />/
                     <input name="system.strikes.max" type="number" value="{{system.strikes.max}}" />
                     </div>
                     <div>
-                    <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>
+                        <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>
                     </div>
                 </div>
-
 
                 <div class="right-col">
                     <div>
                         <span class="headertext">{{localize 'EZD6.Attack'}}</span>
-                        <a class="item-control doroll" data-rolltype="attack" title="{{localize 'EZD6.RollAttack'}}"><i class="fas fa-dice-six"></i></a> 
+                        <a class="item-control doroll" data-rolltype="attack" title="{{localize 'EZD6.RollAttack'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
                     </div>
                 </div>
                 <div class="right-col">
                     <div>
                         <span class="headertext">{{localize 'EZD6.TaskCheck'}}</span>
-                        <a class="item-control doroll" data-rolltype="task" title="{{localize 'EZD6.RollTaskCheck'}}"><i class="fas fa-dice-six"></i></a> 
+                        <a class="item-control doroll" data-rolltype="task" title="{{localize 'EZD6.RollTaskCheck'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
                     </div>
                 </div>
-               </div>
+            </div>
         </div>
     </section>
 </form>

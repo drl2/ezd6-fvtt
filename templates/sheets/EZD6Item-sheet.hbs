@@ -1,18 +1,16 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header">
-        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
-
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64" />
         <div class="header-details">
             <h1 class="charname">
-                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'EZD6.Name'}}"/>
+                <input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'EZD6.Name'}}" />
             </h1>
             <div class="item-subtitle">
-                <h4 class="item-type">
-                    {{itemType}}
-                </h4>
+                <h4 class="item-type">{{itemType}}</h4>
             </div>
         </div>  
     </header>
+
     <section class="sheet-body">
         {{#if isEquipment}}
             <div class="equipment">
@@ -35,7 +33,6 @@
             <div>&nbsp;</div>
         {{/if}}
 
-
         {{#if isBoon}}
             <div class="equipment">
                 <div>
@@ -49,8 +46,7 @@
                         {{/select}}
                     </select>
                 </div>
-                <div>
-                </div>
+                <div></div>
             </div>
             <div>&nbsp;</div>
         {{/if}}
