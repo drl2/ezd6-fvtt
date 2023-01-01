@@ -41,6 +41,21 @@
                         </li>
                     {{/each}}
                 </ol>
+
+                    <div class="item-list">
+                        <!-- Description -->
+                        <div class="item flexrow spacer">
+                            <div class="header-text">{{localize 'EZD6.Description'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control desc-chat" title="{{localize 'EZD6.ShowDesc'}}">
+                                    <i class="fas fa-info-circle"></i></a>
+                            </div>
+                        </div>
+                            <div class="desc">
+                                {{editor enrichedDescription target="system.description" button=true editable=editable}}
+                            </div>
+                    </div>
+
             </div>
 
             <div>
@@ -49,7 +64,7 @@
                         <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
                     </div>
                     <div>
-                        <input name="data.tohit" type="number" value="{{data.tohit}}" />
+                        <input name="system.tohit" type="number" value="{{system.tohit}}" />
                     </div>
                 </div>
 
@@ -58,8 +73,8 @@
                     <span class="headertext">{{localize 'EZD6.Health'}}</span>
                     </div>
                     <div>
-                    <input name="data.strikes.value" type="number" value="{{data.strikes.value}}" />/
-                    <input name="data.strikes.max" type="number" value="{{data.strikes.max}}" />
+                    <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />/
+                    <input name="system.strikes.max" type="number" value="{{system.strikes.max}}" />
                     </div>
                     <div>
                     <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>

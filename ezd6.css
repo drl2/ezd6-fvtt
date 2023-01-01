@@ -44,6 +44,26 @@
   display: grid;
   grid-template-columns: 50% 50%;
 }
+.ezd6.sheet.item .sheet-body .item-list {
+  align-items: center;
+}
+.ezd6.sheet.item .sheet-body .item-list .action-col {
+  text-align: right;
+}
+.ezd6.sheet.item .sheet-body .header-text {
+  text-decoration: underline;
+}
+.ezd6.sheet.item .sheet-body .spacer {
+  padding-bottom: 2px;
+}
+.ezd6.sheet.item .sheet-body .desc .editor {
+  height: 100%;
+  min-height: 250px;
+}
+.ezd6.sheet.item .sheet-body .desc .tox-tinymce {
+  height: 100%;
+  min-height: 240px;
+}
 .ezd6.sheet.character {
   /*  Sheet header */
 }
@@ -96,6 +116,9 @@
 .ezd6.sheet.character .sheet-body .header-text {
   text-decoration: underline;
 }
+.ezd6.sheet.character .sheet-body .spacer {
+  padding-bottom: 2px;
+}
 .ezd6.sheet.character .sheet-body .item-list {
   align-items: center;
   border: solid;
@@ -134,6 +157,14 @@
 }
 .ezd6.sheet.character .sheet-body .right-col .subtext {
   font-size: smaller;
+}
+.ezd6.sheet.character .desc .editor {
+  height: 100%;
+  min-height: 250px;
+}
+.ezd6.sheet.character .desc .tox-tinymce {
+  height: 100%;
+  min-height: 240px;
 }
 #roll-dialog .roll-group {
   padding-top: 6px;

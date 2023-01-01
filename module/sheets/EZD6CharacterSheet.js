@@ -9,7 +9,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
     }
 
     get template() {
-        if (this.actor.data.type === 'monster') {
+        if (this.actor.type === 'monster') {
             return `systems/ezd6/templates/sheets/monster-sheet.hbs`;
         }
         else {
@@ -19,10 +19,11 @@ export default class EZD6CharacterSheet extends ActorSheet {
 
     getData(options) {
         const sheetData = super.getData(options);
-        const actorData = this.actor.data.toObject(false);
+        const actorData = this.actor.toObject(false);
         sheetData.actor = actorData;
-        sheetData.data = actorData.data;
+        sheetData.system = actorData.system;
         sheetData.config = EZD6;
+        sheetData.enrichedDescription = TextEditor.enrichHTML(actorData.system.description, {async: false});
 
         this._prepareItems(sheetData);
 
@@ -45,6 +46,8 @@ export default class EZD6CharacterSheet extends ActorSheet {
         html.find('.doroll').click(this._onRoll.bind(this));
         html.find('.herodieroll').click(this._onHeroRoll.bind(this));
         html.find('.roll-cast').click(this._onRollCast.bind(this));
+        html.find('.desc-chat').click(this._onDescChat.bind(this));
+        html.find('.buyherodie').click(this._onBuyHeroDie.bind(this));
 
         
     }
@@ -61,6 +64,8 @@ export default class EZD6CharacterSheet extends ActorSheet {
         const equipment_potions = [];
         const equipment_weapons = [];
         const equipment_scrolls = [];
+        const equipment_magic = [];
+        const equipment_other = [];
         const monsterfeatures = [];
 
         for (let i of sheetData.items) {
@@ -95,8 +100,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
             }
 
             if (i.type === 'equipment') {
-
-                switch (i.data["equipmenttype"]) {
+                switch (i.system["equipmenttype"]) {
                     case 'EQUIPMENT.Gear':
                         equipment_gear.push(i);
                         break;
@@ -108,6 +112,12 @@ export default class EZD6CharacterSheet extends ActorSheet {
                         break;
                     case 'EQUIPMENT.Potion':
                         equipment_potions.push(i);
+                        break;
+                    case 'EQUIPMENT.Magic':
+                        equipment_magic.push(i);
+                        break;
+                    case 'EQUIPMENT.Other':
+                        equipment_other.push(i);
                         break;
                 }
             }
@@ -133,12 +143,14 @@ export default class EZD6CharacterSheet extends ActorSheet {
             sheetData.hasPotions = (equipment_potions.length > 0);
             sheetData.hasWeapons = (equipment_weapons.length > 0);
             sheetData.hasScrolls = (equipment_scrolls.length > 0);
+            sheetData.hasMagic = (equipment_magic.length > 0);
+            sheetData.hasOther = (equipment_other.length > 0);
 
         }
     }
 
     async _onDropItemCreate(itemData) {
-        const actorData = this.actor.data.data;
+        const actorData = this.actor.system;
 
         if (this.actor.type === "character") {
             if (itemData.type === "monsterfeature") {return false;}
@@ -151,7 +163,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
                 return false;
             }
             else {
-                await this.actor.update({"data.heropath": itemData.name});
+                await this.actor.update({"system.heropath": itemData.name});
             }
         }
 
@@ -160,7 +172,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
                 return false;
             }
             else {
-                await this.actor.update({"data.species": itemData.name});
+                await this.actor.update({"system.species": itemData.name});
             }
             
         }
@@ -170,20 +182,20 @@ export default class EZD6CharacterSheet extends ActorSheet {
 
 
     async _onMinusClick(event) {
-        const actorData = this.actor.data.data;
+        const actorData = this.actor.system;
         const element = event.currentTarget;
         const field = element.dataset.field;
-        const updateField = "data." + field;
+        const updateField = "system." + field;
         
         const newVal = actorData[field] > 0 ? actorData[field] -1 : 0;
         if (newVal !== actorData[field]) { await this.actor.update({[updateField]: newVal}); };
     }
 
     async _onPlusClick(event) {
-        const actorData = this.actor.data.data;
+        const actorData = this.actor.system;
         const element = event.currentTarget;
         const field = element.dataset.field;
-        const updateField = "data." + field;
+        const updateField = "system." + field;
 
         await this.actor.update({[updateField]: actorData[field]+1});
     }
@@ -202,6 +214,11 @@ export default class EZD6CharacterSheet extends ActorSheet {
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
         await item.addQuantity();
+    }
+
+    async _onBuyHeroDie(event) {
+        event.preventDefault();
+        await this.actor.buyHeroDie();
     }
 
 
@@ -281,7 +298,19 @@ export default class EZD6CharacterSheet extends ActorSheet {
         const element = event.currentTarget;
         const itemId = element.closest(".item").dataset.itemId;
         const item = this.actor.items.get(itemId);
-        const cardContent = "<h3>" + item.name + "</h3><div>" + item.data.data.description + "</div>";
+        const cardContent = "<h3>" + item.name + "</h3><div>" + item.system.description + "</div>";
+
+        let chatOptions = {
+            content: cardContent,
+            speaker: ChatMessage.getSpeaker({ actor: this.actor })
+        }
+
+        ChatMessage.create(chatOptions);
+    }
+
+    _onDescChat(event) {
+        event.preventDefault();
+        const cardContent = "<h3>" + game.i18n.localize("EZD6.Description") + "</h3><div>" + this.actor.system.description + "</div>";
 
         let chatOptions = {
             content: cardContent,

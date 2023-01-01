@@ -38,6 +38,17 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
+### [1.1.0] - 2022-12-??
+- Modifications for better Foundry V10 (and beyond) compatibility.  ***This version will only work with Foundry 10 or higher.  Continue using v1.0.1 in Foundry 9.***  Changes related to v10 include:
+    - Revised a lot of soon-to-be-deprecated code to use newer ways of doing things that should ease the transition into future Foundry versions
+    - Fixed some display issues with the Combat Tracker caused ny changes to the underlying layout
+- Added description fields to monster and character sheets
+- Item descriptions are now formattable rather than plain text
+- There were several (potentially conflicting) requests for more sub-types for Equipment; compromised by adding "Magic" and "Other" types as catch-alls for what doesn't quite fit elsewhere
+- Added a button to replenish a Hero Die by spending 5 Karma
+- Added a system option (Game Settings -> Configure Settings -> EZD6) to show Karma changes in chat.  Turned off ("Never") by default.
+- todo: min/full-size character sheet 
+
 ### [1.0.1] - 2022-09-15
 - Minor config changes to suppress warning messages at startup on Foundry v10.  Currently still supports v9 but future versions will probably be v10 only.
 

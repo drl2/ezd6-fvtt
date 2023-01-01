@@ -56,5 +56,18 @@ function checkDsNSetting() {
 };
 
 function registerSystemSettings() {
+    game.settings.register(game.system.id, "showKarmaChangeInChat", {
+        config: true,
+        scope: "world",
+        name: "SETTINGS.karmaChangeInChat.name",
+        hint: "SETTINGS.karmaChangeInChat.label",
+        type: String,
+        choices: {
+            "never": "EZD6.Never",
+            "rronly": "EZD6.ShowRROnly",
+            "everyone": "EZD6.ShowEveryone"
+        },
+        default: "never"
+    });
 
 };

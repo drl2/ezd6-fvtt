@@ -7,7 +7,8 @@
             "value": 3,
             "max": 3
           },
-          "tohit": 3
+          "tohit": 3,
+          "description": ""
         }
       },
       "character": {

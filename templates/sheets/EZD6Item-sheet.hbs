@@ -19,8 +19,8 @@
                 <div>
                     {{localize 'EZD6.Type'}}: 
 
-                    <select name="data.equipmenttype">
-                        {{#select data.equipmenttype}}
+                    <select name="system.equipmenttype">
+                        {{#select system.equipmenttype}}
                         {{#each ezd6.EquipmentTypes as |name type|}}
                         <option value="{{name}}">{{localize name}}</option>
                         {{/each}}
@@ -29,9 +29,10 @@
                 </div>
                 <div>
                     {{localize 'EZD6.Quantity'}}:
-                    <input name="data.quantity" type="number" value="{{data.quantity}}" title="{{localize 'EZD6.Quantity'}}"/>
+                    <input name="system.quantity" type="number" value="{{system.quantity}}" title="{{localize 'EZD6.Quantity'}}"/>
                 </div>
             </div>
+            <div>&nbsp;</div>
         {{/if}}
 
 
@@ -40,8 +41,8 @@
                 <div>
                     {{localize 'EZD6.Type'}}: 
 
-                    <select name="data.boontype">
-                        {{#select data.boontype}}
+                    <select name="system.boontype">
+                        {{#select system.boontype}}
                         {{#each ezd6.BoonTypes as |name type|}}
                         <option value="{{name}}">{{localize name}}</option>
                         {{/each}}
@@ -51,12 +52,17 @@
                 <div>
                 </div>
             </div>
+            <div>&nbsp;</div>
         {{/if}}
 
+                    <div class="item-list">
+                        <!-- Description -->
+                            <div class="header-text spacer">{{localize 'EZD6.Description'}}</div>
 
-        <div class="desccolumn">
-            {{localize 'EZD6.Description'}}
-            <textarea class="desctext" name="data.description">{{data.description}}</textarea>
-        </div> 
+                            <div class="desc">
+                                {{editor enrichedDescription target="system.description" button=true editable=editable}}
+                            </div>
+                    
+                    </div> 
     </section>
 </form>

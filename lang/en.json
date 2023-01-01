@@ -18,7 +18,9 @@
         "Gear": "Gear",
         "Potion": "Potion",
         "Scroll": "Scroll",
-        "Weapon": "Weapon"
+        "Weapon": "Weapon",
+        "Magic": "Magic",
+        "Other": "Other"
     },
     "BOONTYPES": {
         "Species": "Species",
@@ -37,7 +39,15 @@
         "NoHeroDice": "No hero dice available!"
     },
     "WARNINGS": {
-        "NoActorSelected": "No actor selected"
+        "NoActorSelected": "No actor selected",
+        "Need5Karma": "Need at least 5 Karma to replenish a Hero Die!",
+        "HasHeroDie": "Character already has one or more Hero Dice, can't replanish!"
+    },
+    "SETTINGS": {
+        "karmaChangeInChat": {
+            "name": "Show Karma changes in chat",
+            "label": "Display a message in chat when a character gains or loses karma."
+        }
     },
     "EZD6": {
         "HeroPath": "Hero Path",
@@ -111,7 +121,16 @@
         "HasActed": "Toggle if action complete for this turn",
         "TaskCheck": "Task Check",
         "RollTaskCheck": "Roll a Task Check",
-        "RollsTaskCheck": "rolls a Task Check"
+        "RollsTaskCheck": "rolls a Task Check",
+        "Magics": "Magic",
+        "Others": "Other",
+        "ReplenishHeroDie": "Spend 5 Karma to replenish Hero Die",
+        "Never": "Never",
+        "ShowRROnly": "Show to RR only",
+        "ShowEveryone": "Show to everyone",
+        "spent": "spent",
+        "added": "added",
+        "Total": "Total"
     }
 }
 

@@ -1,4 +1,5 @@
 import { EZD6 } from './config.js';
+import {simpleGMWhisper} from './utility.js';
 
 export default class EZActor extends Actor {
 
@@ -8,26 +9,73 @@ export default class EZActor extends Actor {
         // assign a default image based on item type
         if (!data.img) {
             const img = EZD6.ActorTypeImages[data.type];
-            if (img) await this.data.update({ img });
+            if (img) await this.updateSource({ img });
         }
 
         // set some token defaults for player characters
         if ( this.type === "character" ) {
-            this.data.token.update({vision: true, actorLink: true, disposition: 1});
+            this.updateSource(
+                {prototypeToken: {
+                    vision: true,
+                    actorLink: true,
+                    disposition: 1
+                }}
+            )
         }
         else {
-            this.data.token.update({vision: false, actorLink: false, disposition: -1});
+            this.updateSource(
+                {prototypeToken: {
+                    vision: false,
+                    actorLink: false,
+                    disposition: -1
+                }}
+            )
         }
+    }
+
+    _preUpdate(changed, options, userId) {
+        const oldKarma = this.system.karma;
+        super._preUpdate(changed, options, userId);
+
+        if (changed.system.hasOwnProperty('karma')) {
+            const showKarmaChange = game.settings.get(game.system.id, "showKarmaChangeInChat");
+
+            if (showKarmaChange !== "never") {
+                const newKarma = changed.system.karma;
+                const chg = newKarma - oldKarma;
+                const speaker = ChatMessage.getSpeaker({actor: this});
+                
+                const msg = this.name + " " + 
+                    (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
+                    + " " + Math.abs(chg)
+                    + " " + game.i18n.localize("EZD6.Karma") + " (" + game.i18n.localize("EZD6.Total")
+                    + ": " + newKarma + ")";
+
+                if (showKarmaChange == "rronly") {
+                    simpleGMWhisper(speaker, msg);
+                }
+                else {  //show everyone
+                    const chatOptions = {
+                        speaker: speaker,
+                        content: msg
+                    }
+                    ChatMessage.create(chatOptions);
+                }
+            }
+
+        }    
+
+        
     }
 
     prepareDerivedData() {
         super.prepareDerivedData();
 
-        if (this.data.type === 'character') {this._prepareDerivedCharacterData()};
+        if (this.type === 'character') {this._prepareDerivedCharacterData()};
     }
 
     _prepareDerivedCharacterData() {
-        const actorData = this.data.data;
+        const actorData = this.system;
 
         actorData.hasSpecies = (this.items.filter(i => i.type === "species").length > 0);
         actorData.hasPath = (this.items.filter(i => i.type === "heropath").length > 0);
@@ -45,7 +93,7 @@ export default class EZActor extends Actor {
             case 'wound':
                 title = game.i18n.localize("EZD6.WoundSave");
                 actionText = game.i18n.localize("EZD6.WoundSave") + " " + game.i18n.localize("EZD6.for") + " " + this.name;
-                targetNum = this.data.data.armorsave;
+                targetNum = this.system.armorsave;
                 break;
             case 'attack':
                 title = game.i18n.localize("EZD6.ToHitRoll");
@@ -57,7 +105,7 @@ export default class EZActor extends Actor {
             case 'miraculous':
                 title = game.i18n.localize("EZD6.MiraculousSave");
                 actionText = game.i18n.localize("EZD6.MiraculousSave") + " " + game.i18n.localize("EZD6.for") + " " + this.name;
-                targetNum = this.data.data.miraculoussave;
+                targetNum = this.system.miraculoussave;
                 break;
             case 'task':
                 title = game.i18n.localize("EZD6.RollTaskCheck");
@@ -144,7 +192,7 @@ export default class EZActor extends Actor {
     };
 
     async rollHeroDie(dataset) {
-        if (this.data.data.herodice === 0) {
+        if (this.system.herodice === 0) {
             ui.notifications.info(game.i18n.localize("MESSAGES.NoHeroDice"));
         }
         else {
@@ -168,7 +216,7 @@ export default class EZActor extends Actor {
 
             ChatMessage.create(chatOptions);
 
-            await this.update({"data.herodice": --this.data.data.herodice});
+            await this.update({"system.herodice": --this.system.herodice});
         }
     }
 
@@ -241,6 +289,17 @@ export default class EZActor extends Actor {
     
             ChatMessage.create(chatOptions);
         }
+    }
 
+    async buyHeroDie() {
+        if (this.system.karma < 5) {
+            return ui.notifications.warn(game.i18n.localize("WARNINGS.Need5Karma"));
+        }
+        else if (this.system.herodice > 0) {
+            return ui.notifications.warn(game.i18n.localize("WARNINGS.HasHeroDie"));
+        }
+        else {
+            return await this.update({"system.herodice": 1, "system.karma": this.system.karma-5});
+        }
     }
 }
