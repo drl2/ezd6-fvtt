@@ -1,5 +1,7 @@
 import { EZD6 } from "../config.js";
 import EZItem from "../ezitem.js"
+import { MiniCharSheet } from "../minicharsheet.js";
+import { MiniMonsterSheet } from "../minimonstersheet.js"; "../minimonstersheet.js";
 
 export default class EZD6CharacterSheet extends ActorSheet {
     static get defaultOptions() {
@@ -48,8 +50,10 @@ export default class EZD6CharacterSheet extends ActorSheet {
         html.find('.roll-cast').click(this._onRollCast.bind(this));
         html.find('.desc-chat').click(this._onDescChat.bind(this));
         html.find('.buyherodie').click(this._onBuyHeroDie.bind(this));
-
-        
+        html.find('.char-mini').click(this._onShowMini.bind(this));       
+        html.find('.roll-resist').click(this._onRollResist.bind(this)); 
+        html.find('.strikes-minus').click(this._onStrikesMinusClick.bind(this));
+        html.find('.strikes-plus').click(this._onStrikesPlusClick.bind(this)); 
     }
 
     _prepareItems(sheetData) {
@@ -137,6 +141,8 @@ export default class EZD6CharacterSheet extends ActorSheet {
             sheetData.equipment_potions = equipment_potions;
             sheetData.equipment_weapons = equipment_weapons;
             sheetData.equipment_scrolls = equipment_scrolls;
+            sheetData.equipment_magic = equipment_magic;
+            sheetData.equipment_other = equipment_other;
             sheetData.monsterfeatures = monsterfeatures;
 
             sheetData.hasGear = (equipment_gear.length > 0);
@@ -146,6 +152,8 @@ export default class EZD6CharacterSheet extends ActorSheet {
             sheetData.hasMagic = (equipment_magic.length > 0);
             sheetData.hasOther = (equipment_other.length > 0);
 
+            sheetData.showCharacterToHit = game.settings.get(game.system.id, "showCharacterToHit");
+            sheetData.showCharacterMagicResist = game.settings.get(game.system.id, "showCharacterMagicResist");
         }
     }
 
@@ -198,6 +206,14 @@ export default class EZD6CharacterSheet extends ActorSheet {
         const updateField = "system." + field;
 
         await this.actor.update({[updateField]: actorData[field]+1});
+    }
+
+    async _onStrikesMinusClick(event) {
+        this.actor.RemoveStrike();
+    }
+
+    async _onStrikesPlusClick(event) {
+        this.actor.AddStrike();
     }
 
     async _onItemMinusClick(event) {
@@ -343,4 +359,26 @@ export default class EZD6CharacterSheet extends ActorSheet {
 
         await this.actor.rollCast(dataset);
     }
+    
+
+    async _onRollResist(event) {
+        event.preventDefault();
+        const element = event.currentTarget;
+        const dataset = element.dataset;
+
+        await this.actor.rollResist();
+    }
+
+
+    async _onShowMini(event) {
+        event.preventDefault();
+
+        if (this.actor.type === 'monster') {
+            new MiniMonsterSheet(this.actor).render(true);
+        }
+        else {
+            new MiniCharSheet(this.actor).render(true);
+        }
+    }
+
 }

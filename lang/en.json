@@ -47,6 +47,14 @@
         "karmaChangeInChat": {
             "name": "Show Karma changes in chat",
             "label": "Display a message in chat when a character gains or loses karma."
+        },
+        "showCharacterToHit": {
+            "name": "Show To Hit field for PCs",
+            "label": "Display editable To Hit field on the player character sheets."
+        },
+        "showCharacterMagicResist": {
+            "name": "Show Magic Resistance field for PCs",
+            "label": "Display editable Magic Resistance field on the player character sheets."
         }
     },
     "EZD6": {
@@ -130,7 +138,13 @@
         "ShowEveryone": "Show to everyone",
         "spent": "spent",
         "added": "added",
-        "Total": "Total"
+        "Total": "Total",
+        "OpenMini": "Open Mini Sheet",
+        "Resist": "Resist",
+        "RollMagicResistance": "Roll Magic Resistance",
+        "RollsToResistMagic": "Rolls To Resist Magic",
+        "MagicResist": "Magic Resist",
+        "Dice": "Dice"
     }
 }
 

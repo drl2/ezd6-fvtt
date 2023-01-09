@@ -51,6 +51,9 @@
                                             data-type="species"><i class="fas fa-plus"></i></a>
                     {{/unless}}
                 </div>
+                <div>
+                    <a class="item-control char-mini right-justify" title="{{localize 'EZD6.OpenMini'}}"><i class="fa-regular fa-window"></i></a>
+                </div>
             </div>
         </div>
     </header>
@@ -404,8 +407,10 @@
                         <span class="headertext">{{localize 'EZD6.Health'}}</span>
                     </div>
                     <div>
-                    <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />/
-                    <input name="system.strikes.max" type="number" value="{{system.strikes.max}}" />
+                    <a class="item-control strikes-minus"><i class="fas fa-minus"></i></a>
+                    <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />
+                    <a class="item-control strikes-plus"><i class="fas fa-plus"></i></a>
+                    /<input name="system.strikes.max" type="number" value="{{system.strikes.max}}" />
                     </div>
                     <div>
                         <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>
@@ -430,6 +435,18 @@
                         <a class="item-control doroll" data-rolltype="miraculous" title="{{localize 'EZD6.RollSave'}}"><i class="fas fa-dice-six"></i></a> 
                     </div> 
                 </div>
+
+
+                {{#if showCharacterToHit}}
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
+                    </div>
+                    <div>
+                        <input name="system.tohit" type="number" value="{{system.tohit}}" />
+                    </div>
+                </div>
+                {{/if}}
 
                 <div class="right-col">
                     <div>
@@ -465,6 +482,17 @@
                             <i class="fas fa-dice-six"></i>
                         </a> 
                     </div>
+
+                    <div>
+                        {{localize 'EZD6.Resist'}}
+                        {{#if showCharacterMagicResist}}
+                            <input name="system.magicresist" type="number" value="{{system.magicresist}}" />d6
+                        {{/if}}
+                        <a class="item-control roll-resist" data-rolltype="magicresist" title="{{localize 'EZD6.RollMagicResistance'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
+                    </div>
+
 
                 </div>
 

@@ -1,4 +1,5 @@
 @import "./item-sheet.less";
+@import "./mini-sheet.less";
 
 .ezd6.sheet.character {
   form {
@@ -33,10 +34,12 @@
       font-size            : 14px;
       margin-left          : 12px;
       display              : grid;
-      grid-template-columns: 45% 45%;
+      grid-template-columns: 45% 45% 10%;
       align-items          : center;
 
-
+      .right-justify {
+        float: right;
+      }
     }
   }
 

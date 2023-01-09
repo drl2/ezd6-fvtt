@@ -14,6 +14,7 @@ All character and monster features except for the basic stats are types of Items
 ## Other Documentation:
 - [Handling Initiative](initiative.md)
 - [Built-in Macros](macro-helpers.md)
+- [New features in version 1.1.0](v110_changes.md)
 
 ## Nice To Have Maybe Someday But Let's Get the Core System Well Tested First
 
@@ -39,6 +40,7 @@ This project is free and open source, but if you're feeling generous and would l
 ## Change Log
 
 ### [1.1.0] - 2022-12-??
+- There are enough small quality-of-life and customization-enabling changes in this version to warrant some [dedicated new documentation](v110_changes.md).
 - Modifications for better Foundry V10 (and beyond) compatibility.  ***This version will only work with Foundry 10 or higher.  Continue using v1.0.1 in Foundry 9.***  Changes related to v10 include:
     - Revised a lot of soon-to-be-deprecated code to use newer ways of doing things that should ease the transition into future Foundry versions
     - Fixed some display issues with the Combat Tracker caused ny changes to the underlying layout
@@ -47,6 +49,9 @@ This project is free and open source, but if you're feeling generous and would l
 - There were several (potentially conflicting) requests for more sub-types for Equipment; compromised by adding "Magic" and "Other" types as catch-alls for what doesn't quite fit elsewhere
 - Added a button to replenish a Hero Die by spending 5 Karma
 - Added a system option (Game Settings -> Configure Settings -> EZD6) to show Karma changes in chat.  Turned off ("Never") by default.
+- Added a system option to show 'to hit' on player chharacter sheet like on monster sheet.  Off by default - this is mainly for RRs who want to customize the rules
+- Added magic resistance roller to character & monster sheets.  Magic resistance dice can be specified on the monster sheet, and a system option is avaliable to make the # of dice editable for player characters.
+- Added plus/minus icons for single-click increment/decrement of strikes
 - todo: min/full-size character sheet 
 
 ### [1.0.1] - 2022-09-15

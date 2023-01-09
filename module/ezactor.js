@@ -1,4 +1,6 @@
 import { EZD6 } from './config.js';
+import { MiniCharSheet } from './minicharsheet.js';
+import { MiniMonsterSheet } from './minimonstersheet.js';
 import {simpleGMWhisper} from './utility.js';
 
 export default class EZActor extends Actor {
@@ -64,9 +66,20 @@ export default class EZActor extends Actor {
             }
 
         }    
-
-        
     }
+
+    _onUpdate(data, options, userId) {
+        super._onUpdate(data, options, userId);
+        if (('strikes' in data.system) || ('karma' in data.system) || ('herodice' in data.system))
+        {
+            let id = `ezd6-mini-sheet-${this.id}`;
+            if (this.isToken) id += `-${this.token.id}`;
+            const mini = Object.values(ui.windows).find(window => window.id === id)
+            if (mini) { mini.render(true); }
+        }
+    }
+
+
 
     prepareDerivedData() {
         super.prepareDerivedData();
@@ -291,6 +304,68 @@ export default class EZActor extends Actor {
         }
     }
 
+    async rollResist() {
+        const data = {
+            config: EZD6,
+            dice: this.system.magicresist
+        };
+
+        const dlgContent = await renderTemplate("systems/ezd6/templates/dialogs/resist.hbs", data);
+        const title = this.name + " " + game.i18n.localize("EZD6.RollsToResistMagic");
+        
+        const dlg = new Dialog({
+            title: title,
+            content: dlgContent,
+            buttons:{
+                roll: {
+                    icon: "<i class='fas fa-dice-d6'></i>",
+                    label: game.i18n.localize("EZD6.Roll"),
+                    callback: (html) => rollCallback(html)
+                },
+                cancel: {
+                    icon: "<i class='fas fa-times'></i>",
+                    label: game.i18n.localize("EZD6.Cancel")
+                }
+            },
+            default: "roll",
+        },
+        {
+            id: "roll-dialog"
+        }
+        );
+        dlg.render(true);
+        
+        async function rollCallback(html) {
+            const numDice = html.find('[name="numdice"]')[0].value.trim();
+            const formula = numDice + "d6kh";
+
+            const diceRoll = await new Roll(formula).evaluate({ async: true });
+            let rollHTML = await diceRoll.render();
+
+            rollHTML = rollHTML.replace("dice-tooltip", "dice-tooltip expanded");
+            rollHTML = rollHTML.replace(formula, formula.replace("kh", ", " + game.i18n.localize("EZD6.KeepHighest")));
+
+            const rollData = {
+                rollType: title,
+                rollHTML: rollHTML
+            };
+
+            
+            let cardContent = await renderTemplate("systems/ezd6/templates/chatcards/normalroll.hbs", rollData);
+      
+            const chatOptions = {
+                type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+                roll: diceRoll,
+                content: cardContent,
+                speaker: ChatMessage.getSpeaker({ actor: this })
+            }
+    
+            ChatMessage.create(chatOptions);
+        }
+
+    }
+
+
     async buyHeroDie() {
         if (this.system.karma < 5) {
             return ui.notifications.warn(game.i18n.localize("WARNINGS.Need5Karma"));
@@ -301,5 +376,18 @@ export default class EZActor extends Actor {
         else {
             return await this.update({"system.herodice": 1, "system.karma": this.system.karma-5});
         }
+    }
+
+    
+    async RemoveStrike() {
+        const actorData = this.system;
+        const newVal = actorData.strikes.value > 0 ? actorData.strikes.value -1 : 0;
+        if (newVal !== actorData.strikes.value) { await this.update({"system.strikes.value": newVal}); };
+    }
+
+    async AddStrike() {
+        const actorData = this.system;
+        const newVal = actorData.strikes.value < actorData.strikes.max ? actorData.strikes.value +1 : actorData.strikes.max;
+        if (newVal !== actorData.strikes.value) { await this.update({"system.strikes.value": newVal}); };
     }
 }

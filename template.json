@@ -8,7 +8,8 @@
             "max": 3
           },
           "tohit": 3,
-          "description": ""
+          "description": "",
+          "magicresist": 1
         }
       },
       "character": {

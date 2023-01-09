@@ -70,4 +70,21 @@ function registerSystemSettings() {
         default: "never"
     });
 
+    game.settings.register(game.system.id, "showCharacterToHit", {
+        config: true,
+        scope: "world",
+        name: "SETTINGS.showCharacterToHit.name",
+        hint: "SETTINGS.showCharacterToHit.label",
+        type: Boolean,
+        default: false
+    });
+
+    game.settings.register(game.system.id, "showCharacterMagicResist", {
+        config: true,
+        scope: "world",
+        name: "SETTINGS.showCharacterMagicResist.name",
+        hint: "SETTINGS.showCharacterMagicResist.label",
+        type: Boolean,
+        default: false
+    });
 };

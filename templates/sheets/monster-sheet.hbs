@@ -5,7 +5,15 @@
             <h1 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MP.Actor.CharName'}}" />
             </h1>
+            <div class="header-stats">
+                <div></div>
+                <div></div>
+                <div>
+                    <a class="item-control char-mini right-justify" title="{{localize 'EZD6.OpenMini'}}"><i class="fa-regular fa-window"></i></a>
+                </div>
+            </div>
         </div>
+
     </header>
 
     <section class="sheet-body">
@@ -72,7 +80,10 @@
                         <span class="headertext">{{localize 'EZD6.Health'}}</span>
                     </div>
                     <div>
-                    <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />/
+                    <a class="item-control strikes-minus"><i class="fas fa-minus"></i></a>
+                    <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />
+                    <a class="item-control strikes-plus"><i class="fas fa-plus"></i></a>
+                    /
                     <input name="system.strikes.max" type="number" value="{{system.strikes.max}}" />
                     </div>
                     <div>
@@ -92,6 +103,16 @@
                     <div>
                         <span class="headertext">{{localize 'EZD6.TaskCheck'}}</span>
                         <a class="item-control doroll" data-rolltype="task" title="{{localize 'EZD6.RollTaskCheck'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
+                    </div>
+                </div>
+                <div class="right-col">
+                    <div>
+                        <span class="headertext">{{localize 'EZD6.MagicResist'}}</span><br />
+                        {{localize 'EZD6.Dice'}}: 
+                        <input name="system.magicresist" type="number" value="{{system.magicresist}}" />d6
+                        <a class="item-control roll-resist" data-rolltype="magicresist" title="{{localize 'EZD6.RollMagicResistance'}}">
                             <i class="fas fa-dice-six"></i>
                         </a> 
                     </div>

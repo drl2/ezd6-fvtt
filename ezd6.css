@@ -64,6 +64,50 @@
   height: 100%;
   min-height: 240px;
 }
+.ezd6.sheet.mini section {
+  background: black !important;
+  color: white !important;
+}
+.ezd6.sheet.mini form {
+  display: block;
+}
+.ezd6.sheet.mini .footer-section {
+  width: 100%;
+  border-top: 1px solid white;
+}
+.ezd6.sheet.mini .mini-section {
+  width: 100%;
+}
+.ezd6.sheet.mini .mini-section .col {
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 33.33%;
+  float: left;
+}
+.ezd6.sheet.mini .mini-section .col .col-header {
+  border-bottom: 1px solid;
+}
+.ezd6.sheet.mini .mini-section .col .col-header .twocol {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  justify-content: space-between;
+}
+.ezd6.sheet.mini .mini-section .col .col-header .twocol .item-control {
+  font-size: 12px;
+}
+.ezd6.sheet.mini .mini-section .col .strike {
+  color: red;
+}
+.ezd6.sheet.mini .mini-section .col .used-strike {
+  color: grey;
+}
+.ezd6.sheet.mini .mini-section .col .hero-die {
+  color: blue;
+}
+.ezd6.sheet.mini .mini-section .col .karma {
+  color: gold;
+}
 .ezd6.sheet.character {
   /*  Sheet header */
 }
@@ -93,8 +137,11 @@
   font-size: 14px;
   margin-left: 12px;
   display: grid;
-  grid-template-columns: 45% 45%;
+  grid-template-columns: 45% 45% 10%;
   align-items: center;
+}
+.ezd6.sheet.character .sheet-header .header-stats .right-justify {
+  float: right;
 }
 .ezd6.sheet.character .sheet-body {
   height: 100%;
