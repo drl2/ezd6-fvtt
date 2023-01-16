@@ -5,7 +5,7 @@ Several functions have been added to the system to simplify adding common rolls 
 ![Macro Examples](/doc-images/Roll%20Macro%20Examples.webp)
 
 ## rollTask
-Rolls an attack, save, or general task check.  Takes the type of roll for an argument; options are "attack", "wound" or "miracle" for saves, and "task" (or no argument) for a generic task roll.
+Rolls an attack, save, or general task check.  Takes the type of roll for an argument; options are "attack", "wound" or "miraculous" for saves, and "task" (or no argument) for a generic task roll.
 
 
 Example:
@@ -32,6 +32,14 @@ If the current actor has any Hero Dice, roll one and remove it from their Hero D
 Examples:
 
 `game.mp.rollHeroDie();`
+
+
+## rollResist
+Roll magic resistance for the current selected actor.
+
+Examples:
+
+`game.mp.rollResist();`
 
 
 [EZD6 README](README.md)

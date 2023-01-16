@@ -44,6 +44,89 @@
   display: grid;
   grid-template-columns: 50% 50%;
 }
+.ezd6.sheet.item .sheet-body .item-list {
+  align-items: center;
+}
+.ezd6.sheet.item .sheet-body .item-list .action-col {
+  text-align: right;
+}
+.ezd6.sheet.item .sheet-body .header-text {
+  text-decoration: underline;
+}
+.ezd6.sheet.item .sheet-body .spacer {
+  padding-bottom: 2px;
+}
+.ezd6.sheet.item .sheet-body .desc .editor {
+  height: 100%;
+  min-height: 250px;
+}
+.ezd6.sheet.item .sheet-body .desc .tox-tinymce {
+  height: 100%;
+  min-height: 240px;
+}
+.ezd6.sheet.mini section {
+  background: black !important;
+  color: white !important;
+}
+.ezd6.sheet.mini form {
+  display: block;
+}
+.ezd6.sheet.mini .footer-section {
+  width: 100%;
+  border-top: 1px solid white;
+  margin-top: 1px;
+  padding-top: 4px;
+  text-align: center;
+}
+.ezd6.sheet.mini .mini-section {
+  width: 100%;
+}
+.ezd6.sheet.mini .mini-section .col {
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 33.33%;
+  float: left;
+}
+.ezd6.sheet.mini .mini-section .col .col-header {
+  font-size: smaller;
+  border-bottom: 1px solid;
+  margin-bottom: 2px;
+}
+.ezd6.sheet.mini .mini-section .col .strike {
+  color: red;
+}
+.ezd6.sheet.mini .mini-section .col .used-strike {
+  color: grey;
+  -webkit-text-stroke: 1px red;
+}
+.ezd6.sheet.mini .mini-section .col .hero-die {
+  color: blue;
+}
+.ezd6.sheet.mini .mini-section .col .no-hero-die {
+  color: grey;
+  -webkit-text-stroke: 2px blue;
+}
+.ezd6.sheet.mini .mini-section .col .karma {
+  color: gold;
+}
+.ezd6.sheet.mini .mini-section .col .no-karma {
+  color: grey;
+  -webkit-text-stroke: 1px gold;
+}
+.ezd6.sheet.mini .mini-monster-section {
+  display: grid;
+  grid-template-columns: auto 150px;
+}
+.ezd6.sheet.mini .mini-monster-section .command-block {
+  text-align: right;
+}
+.ezd6.sheet.mini .mini-monster-section .strike {
+  color: red;
+}
+.ezd6.sheet.mini .mini-monster-section .used-strike {
+  color: grey;
+  -webkit-text-stroke: 1px red;
+}
 .ezd6.sheet.character {
   /*  Sheet header */
 }
@@ -76,6 +159,9 @@
   grid-template-columns: 45% 45%;
   align-items: center;
 }
+.ezd6.sheet.character .sheet-header .header-stats .right-justify {
+  float: right;
+}
 .ezd6.sheet.character .sheet-body {
   height: 100%;
   display: flex;
@@ -95,6 +181,9 @@
 }
 .ezd6.sheet.character .sheet-body .header-text {
   text-decoration: underline;
+}
+.ezd6.sheet.character .sheet-body .spacer {
+  padding-bottom: 2px;
 }
 .ezd6.sheet.character .sheet-body .item-list {
   align-items: center;
@@ -134,6 +223,14 @@
 }
 .ezd6.sheet.character .sheet-body .right-col .subtext {
   font-size: smaller;
+}
+.ezd6.sheet.character .desc .editor {
+  height: 100%;
+  min-height: 250px;
+}
+.ezd6.sheet.character .desc .tox-tinymce {
+  height: 100%;
+  min-height: 240px;
 }
 #roll-dialog .roll-group {
   padding-top: 6px;

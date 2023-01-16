@@ -5,7 +5,12 @@
             <h1 class="charname">
                 <input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'MP.Actor.CharName'}}" />
             </h1>
+            <div class="header-stats">
+                <div></div>
+                <div></div>
+            </div>
         </div>
+
     </header>
 
     <section class="sheet-body">
@@ -40,6 +45,21 @@
                         </li>
                     {{/each}}
                 </ol>
+
+                    <div class="item-list">
+                        <!-- Description -->
+                        <div class="item flexrow spacer">
+                            <div class="header-text">{{localize 'EZD6.Description'}}</div>
+                            <div class="item-controls action-col">
+                                <a class="item-control desc-chat" title="{{localize 'EZD6.ShowDesc'}}">
+                                    <i class="fas fa-info-circle"></i></a>
+                            </div>
+                        </div>
+                            <div class="desc">
+                                {{editor enrichedDescription target="system.description" button=true editable=editable}}
+                            </div>
+                    </div>
+
             </div>
 
             <div>
@@ -48,7 +68,7 @@
                         <span class="headertext">{{localize 'EZD6.ToHit'}}</span>
                     </div>
                     <div>
-                        <input name="data.tohit" type="number" value="{{data.tohit}}" />
+                        <input name="system.tohit" type="number" value="{{system.tohit}}" />
                     </div>
                 </div>
 
@@ -57,8 +77,11 @@
                         <span class="headertext">{{localize 'EZD6.Health'}}</span>
                     </div>
                     <div>
-                        <input name="data.strikes.value" type="number" value="{{data.strikes.value}}" />/
-                        <input name="data.strikes.max" type="number" value="{{data.strikes.max}}" />
+                    <a class="item-control strikes-minus"><i class="fas fa-minus"></i></a>
+                    <input name="system.strikes.value" type="number" value="{{system.strikes.value}}" />
+                    <a class="item-control strikes-plus"><i class="fas fa-plus"></i></a>
+                    /
+                    <input name="system.strikes.max" type="number" value="{{system.strikes.max}}" />
                     </div>
                     <div>
                         <span class="subtext">{{localize 'EZD6.StrikesUntilDead'}}</span>
@@ -77,6 +100,23 @@
                     <div>
                         <span class="headertext">{{localize 'EZD6.TaskCheck'}}</span>
                         <a class="item-control doroll" data-rolltype="task" title="{{localize 'EZD6.RollTaskCheck'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
+                    </div>
+                </div>
+                <div class="right-col">
+                    <div><span class="headertext">{{localize 'EZD6.Magic'}}</span></div>
+                    <div>
+                        {{localize 'EZD6.SpellAbility'}}
+                        <input name="system.magicdice" type="number" value="{{system.magicdice}}" />d6
+                        <a class="item-control roll-monster-magic" data-rolltype="monster-magic" title="{{localize 'EZD6.RollMonsterMagic'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
+                    </div>
+                    <div>
+                        {{localize 'EZD6.Resist'}}
+                        <input name="system.magicresist" type="number" value="{{system.magicresist}}" />d6
+                        <a class="item-control roll-resist" data-rolltype="magicresist" title="{{localize 'EZD6.RollMagicResistance'}}">
                             <i class="fas fa-dice-six"></i>
                         </a> 
                     </div>

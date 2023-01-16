@@ -18,7 +18,9 @@
         "Gear": "Gear",
         "Potion": "Potion",
         "Scroll": "Scroll",
-        "Weapon": "Weapon"
+        "Weapon": "Weapon",
+        "Magic": "Magic",
+        "Other": "Other"
     },
     "BOONTYPES": {
         "Species": "Species",
@@ -37,7 +39,27 @@
         "NoHeroDice": "No hero dice available!"
     },
     "WARNINGS": {
-        "NoActorSelected": "No actor selected"
+        "NoActorSelected": "No actor selected",
+        "Need5Karma": "Need at least 5 Karma to replenish a Hero Die!",
+        "HasHeroDie": "Character already has one or more Hero Dice, can't replanish!"
+    },
+    "SETTINGS": {
+        "karmaChangeInChat": {
+            "name": "Show Karma changes in chat",
+            "label": "Display a message in chat when a character gains or loses karma."
+        },
+        "showCharacterToHit": {
+            "name": "Show To Hit field for PCs",
+            "label": "Display editable To Hit field on the player character sheets."
+        },
+        "showCharacterMagicResist": {
+            "name": "Show Magic Resist field for PCs",
+            "label": "Display editable Magic Resistance field on the player character sheets."
+        },
+        "showChangeHeroDice": {
+            "name": "Show Hero Dice changes in chat",
+            "label": "Display a message in chat when a character gains or loses Hero Dice."
+        }
     },
     "EZD6": {
         "HeroPath": "Hero Path",
@@ -88,6 +110,7 @@
         "Roll": "Roll",
         "Cancel": "Cancel",
         "MiraculousSave": "Miraculous Save",
+        "RollMiraculousSave": "Roll a Miraculous Save",
         "ToHitRoll": "To Hit Roll",
         "for": "for",
         "attacks": "attacks",
@@ -111,7 +134,34 @@
         "HasActed": "Toggle if action complete for this turn",
         "TaskCheck": "Task Check",
         "RollTaskCheck": "Roll a Task Check",
-        "RollsTaskCheck": "rolls a Task Check"
+        "RollsTaskCheck": "rolls a Task Check",
+        "Magics": "Magic",
+        "Others": "Other",
+        "ReplenishHeroDie": "Spend 5 Karma to replenish Hero Die",
+        "Never": "Never",
+        "ShowRROnly": "Show to RR only",
+        "ShowEveryone": "Show to everyone",
+        "spent": "spent",
+        "added": "added",
+        "Total": "Total",
+        "OpenMini": "Open Mini Sheet",
+        "MiniSheet": "Mini Sheet",
+        "Resist": "Resist",
+        "RollMagicResistance": "Roll Magic Resistance",
+        "RollsToResistMagic": "Rolls To Resist Magic",
+        "MagicResist": "Magic Resist",
+        "Dice": "Dice",
+        "LeftClick": "Left click",
+        "RightClick": "Right click",
+        "Spend": "Spend",
+        "Earn": "Earn",
+        "OpenFullSheet": "Open full character sheet",
+        "RollWoundSave": "Roll a Wound Save",
+        "Lose": "Lose",
+        "Heal": "Heal",
+        "SpellAbility": "Spell/Ability",
+        "RollMonsterMagic": "Roll to use a magical ability",
+        "rollsmonstermagic": "rolls to cast a spell or use a magical ability"
     }
 }
 

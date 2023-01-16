@@ -12,6 +12,7 @@ export default class EZD6ItemSheet extends ItemSheet {
         return `systems/ezd6/templates/sheets/EZD6Item-sheet.hbs`;
     }
 
+    
 
     getData(options) {
         const baseData = super.getData();
@@ -21,14 +22,16 @@ export default class EZD6ItemSheet extends ItemSheet {
             owner: this.item.isOwner,
             editable: this.isEditable,
             item: baseData.item,
-            data: baseData.item.data.data,
+            system: baseData.item.system,
             isowned: isOwned,
             ezd6: EZD6,
             isEquipment: baseData.item.type === "equipment",
             isBoon: baseData.item.type === "boon"
         }
-        sheetData.itemType = game.i18n.localize(`ITEM.Type${sheetData.item.data.type.titleCase()}`)
+        sheetData.itemType = game.i18n.localize(`ITEM.Type${sheetData.item.type.titleCase()}`)
+        sheetData.enrichedDescription = TextEditor.enrichHTML(baseData.item.system.description, {async: false});
 
         return sheetData;
     }
+
 }

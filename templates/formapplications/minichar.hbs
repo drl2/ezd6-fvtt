@@ -1,0 +1,39 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <section class="mini-section">
+        <a class="item-control strikes" title="{{localize 'EZD6.LeftClick'}}: {{localize 'EZD6.Lose'}}&#10;{{localize 'EZD6.RightClick'}}: {{localize 'EZD6.Heal'}}">
+            <div class="col">
+                <div class="col-header">
+                    <div>{{localize 'EZD6.Strikes'}}</div>
+                </div>
+                {{{strikesHtml}}}
+            </div>
+        </a>
+        <a class="item-control hero-dice" title="{{localize 'EZD6.LeftClick'}}: {{localize 'EZD6.Roll'}}&#10;{{localize 'EZD6.RightClick'}}: {{localize 'EZD6.Earn'}}">
+            <div class="col">
+                <div class="col-header">
+                    <div>{{localize 'EZD6.HeroDice'}}</div>
+                </div>
+                {{{heroDiceHtml}}}
+            </div>
+        </a>
+        <a class="item-control karma-spend" title="{{localize 'EZD6.LeftClick'}}: {{localize 'EZD6.Spend'}}&#10;{{localize 'EZD6.RightClick'}}: {{localize 'EZD6.Earn'}}">
+            <div class="col">
+                <div class="col-header">
+                    <div>{{localize 'EZD6.Karma'}}</div>
+                </div>
+                {{{karmaHtml}}}
+            </div>
+        </a>
+    </section>
+    <div style="clear:both;"></div>
+    <section class="footer-section">
+        <a class="item-control roll" data-rolltype="attack" title="{{localize 'EZD6.RollAttack'}}"><img src="systems/ezd6/assets//icons/gladius.svg" width="25" height="25"/></a>
+        <a class="item-control monster-magic" title="{{localize 'EZD6.Roll'}}"><img src="systems/ezd6/assets/icons/magic-swirl.svg" width="25" height="25"/></a>
+        <a class="item-control roll-miracle" title="{{localize 'EZD6.RollMiracle'}}"><img src="systems/ezd6/assets/icons/angel-wings.svg" width="25" height="25"/></a>
+        <a class="item-control roll" data-rolltype="task" title="{{localize 'EZD6.RollTaskCheck'}}"><img src="systems/ezd6/assets/icons/dice-six-faces-six.svg" width="25" height="25"/></a>
+        <a class="item-control roll" data-rolltype="wound" title="{{localize 'EZD6.RollWoundSave'}}"><img src="systems/ezd6/assets/icons/shield.svg" width="25" height="25"/></a>
+        <a class="item-control roll" data-rolltype="miraculous" title="{{localize 'EZD6.RollMiraculousSave'}}"><img src="systems/ezd6/assets/icons/rosa-shield.svg" width="25" height="25"/></a>
+        <a class="item-control roll-magic-resist" title="{{localize 'EZD6.RollMagicResistance'}}"><img src="systems/ezd6/assets/icons/surrounded-shield.svg" width="25" height="25"/></a>
+        <a class="item-control open-sheet" title="{{localize 'EZD6.OpenFullSheet'}}"><img src="systems/ezd6/assets/icons/expand.svg" width="25" height="25"/></a>
+    </section>
+</form>

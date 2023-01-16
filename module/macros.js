@@ -40,3 +40,15 @@ export function rollHeroDie() {
 
     actor.rollHeroDie({});
 }
+
+
+export function rollResist() {
+    const speaker = ChatMessage.getSpeaker();
+    let actor;
+    if (speaker.token) actor = game.actors.tokens[speaker.token];
+    if (!actor) actor = game.actors.get(speaker.actor);
+
+    if (!actor) { return ui.notifications.warn(game.i18n.localize("WARNINGS.NoActorSelected")); }
+
+    actor.rollResist();
+}

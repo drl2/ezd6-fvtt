@@ -1,62 +1,91 @@
-
 .ezd6.sheet.item {
 
-    form {
-      display       : flex;
-      flex-direction: column;
+  form {
+    display       : flex;
+    flex-direction: column;
+  }
+
+  .rollable {
+    cursor: pointer;
+  }
+
+  .rollable:hover {
+    text-shadow: 0 0 8px red;
+    color      : black;
+  }
+
+
+  /*  Sheet header */
+  .sheet-header {
+    flex         : 0;
+    margin-bottom: 2px;
+
+    .item-subtitle {
+      margin-left: 8px;
+
+      .item-type {
+        font-size  : 10px;
+        line-height: 14px;
+      }
+
     }
-  
-    .rollable {
-      cursor: pointer;
-    }
-  
-    .rollable:hover {
-      text-shadow: 0 0 8px red;
-      color      : black;
-    }
-  
-  
-    /*  Sheet header */
-    .sheet-header {
-      flex         : 0;
-      margin-bottom: 2px;
-  
-      .item-subtitle {
-        margin-left: 8px;
-  
-        .item-type {
-          font-size  : 10px;
-          line-height: 14px;
-        }
-  
+  }
+
+
+
+  /* sheet body */
+  .sheet-body {
+    height        : 100%;
+    display       : flex;
+    flex-direction: column;
+
+    .desccolumn {
+      height: 100%;
+
+      .desctext {
+        min-height: 150px;
+        height    : 85%;
       }
     }
 
-
-    /* sheet body */
-    .sheet-body {
-        height        : 100%;
-        display       : flex;
-        flex-direction: column;
-    
-        .desccolumn {
-            height     : 100%;
-        
-            .desctext {
-                min-height: 150px;
-                height    : 85%;
-            }
-        }
-
-        input[type="number"] {
-            width: 30px;
-            text-align: center;
-          }
-
-          .equipment {
-            display: grid;
-            grid-template-columns: 50% 50%;
-          }
+    input[type="number"] {
+      width     : 30px;
+      text-align: center;
     }
-}
 
+    .equipment {
+      display              : grid;
+      grid-template-columns: 50% 50%;
+    }
+
+    .item-list {
+      align-items: center;
+
+      .action-col {
+        text-align: right;
+      }
+
+    }
+
+    .header-text {
+      text-decoration: underline;
+    }
+
+    .spacer {
+      padding-bottom: 2px;
+    }
+
+    .desc {
+      .editor {
+        height    : 100%;
+        min-height: 250px;
+      }
+
+      .tox-tinymce {
+        height    : 100%;
+        min-height: 240px;
+      }
+    }
+  }
+
+}

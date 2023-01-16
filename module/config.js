@@ -4,7 +4,9 @@ EZD6.EquipmentTypes = {
     gear: "EQUIPMENT.Gear",
     potion: "EQUIPMENT.Potion",
     weapon: "EQUIPMENT.Weapon",
-    scroll: "EQUIPMENT.Scroll"
+    scroll: "EQUIPMENT.Scroll",
+    magic: "EQUIPMENT.Magic",
+    other: "EQUIPMENT.Other"
 }
 
 EZD6.BoonTypes = {
@@ -38,7 +40,9 @@ EZD6.EquipmentTypeImages = {
     gear: "systems/ezd6/assets/icons/light-backpack.svg",
     potion: "systems/ezd6/assets/icons/round-potion.svg",
     weapon: "systems/ezd6/assets/icons/axe-sword.svg",
-    scroll: "systems/ezd6/assets/icons/tied-scroll.svg"
+    scroll: "systems/ezd6/assets/icons/tied-scroll.svg",
+    magic: "systems/ezd6/assets/icons/magic-swirl.svg",
+    other: "systems/ezd6/assets/icons/swap-bag.svg"
 }
 
 EZD6.ActorTypeImages = {

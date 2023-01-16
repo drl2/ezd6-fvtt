@@ -1,42 +1,44 @@
 {
-    "id": "ezd6",
-    "name": "ezd6",
-    "title": "EZD6",
-    "description": "A FoundryVTT system implementation of Scotty McFarland's EZD6 system",
-    "author": "Don Lloyd",
-    "authors": [],
-    "url": "https://github.com/drl2/ezd6-fvtt",
-    "license": "LICENSE.txt",
-    "flags": {},
-    "version": "1.0.1",
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "10",
-    "compatibility": {
-      "minimum": "9",
-      "verified": "10",
-      "maximum": "10"
-    },
-    "scripts": [],
-    "esmodules": [
-      "module/ezd6.js"
-    ],
-    "styles": [
-      "ezd6.css"
-    ],
-    "languages": [
-      {
-        "lang": "en",
-        "name": "English",
-        "path": "lang/en.json"
-      }
-    ],
-    "system": [],
-    "socket": false,
-    "manifest": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.json",
-    "download": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.zip",
-    "protected": false,
-    "gridDistance": 5,
-    "gridUnits": "ft",
-    "primaryTokenAttribute": "strikes",
-    "secondaryTokenAttribute": "karma"
-  }
+  "id": "ezd6",
+  "title": "EZD6",
+  "description": "A FoundryVTT system implementation of Scotty McFarland's EZD6 system",
+  "url": "https://github.com/drl2/ezd6-fvtt",
+  "license": "LICENSE.txt",
+  "version": "1.1.0",
+  "compatibility": {
+    "minimum": "9",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "esmodules": [
+    "module/ezd6.js"
+  ],
+  "styles": [
+    "ezd6.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "ezd6-system-macros",
+      "label": "EZD6 System Macros",
+      "system": "exd6",
+      "path": "packs/ezd6-system-macros.db",
+      "type": "Macro",
+      "private": true,
+      "flags": {}
+    }
+  ],
+  "manifest": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.json",
+  "download": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.zip",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "strikes",
+  "secondaryTokenAttribute": "karma"
+}

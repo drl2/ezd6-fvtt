@@ -2,11 +2,11 @@
 	<div class="form-group roll-group">
         <div>
         {{localize 'EZD6.DiceToRoll'}}: &nbsp;
-        <a class="item-control" data-field="karma" onclick="handleSpellDiceDecrement()">
+        <a class="item-control" onclick="handleResistDiceDecrement()">
             <i class="fas fa-minus"></i>
         </a>
         <input id="numdice" name="numdice" type="number" data-dtype="Number" value="{{dice}}">
-        <a class="item-control" data-field="karma" onclick="handleSpellDiceIncrement()">
+        <a class="item-control" onclick="handleResistDiceIncrement()">
             <i class="fas fa-plus"></i>
         </a>
         </div>
@@ -17,12 +17,12 @@
     bbField = document.getElementById("numdice");
     var count = bbField.value;
 
-    function handleSpellDiceIncrement() {
+    function handleResistDiceIncrement() {
         count++;
         bbField.value = count;
     };
 
-    function handleSpellDiceDecrement() {
+    function handleResistDiceDecrement() {
         count = (--count > 1) ? count : 1;
         bbField.value = count;
     };

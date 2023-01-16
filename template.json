@@ -7,7 +7,9 @@
             "value": 3,
             "max": 3
           },
-          "tohit": 3
+          "tohit": 3,
+          "description": "",
+          "magicresist": 1
         }
       },
       "character": {
@@ -20,7 +22,8 @@
         "wealth": "WEALTH.Moderate"
       },
       "monster": {
-        "templates": ["base"]
+        "templates": ["base"],
+        "magicdice": 0
       }
     },
     "Item": {
