@@ -39,7 +39,7 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
-### [1.1.0] - 2022-12-??
+### [1.1.0] - 2023-01-16
 - There are enough small quality-of-life and customization-enabling changes in this version to warrant some [dedicated new documentation](v110_changes.md).
 - Modifications for better Foundry V10 (and beyond) compatibility.  ***This version will only work with Foundry 10 or higher.  Continue using v1.0.1 in Foundry 9.***  Changes related to v10 include:
     - Revised a lot of soon-to-be-deprecated code to use newer ways of doing things that should ease the transition into future Foundry versions
