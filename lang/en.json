@@ -53,9 +53,13 @@
             "label": "Display editable To Hit field on the player character sheets."
         },
         "showCharacterMagicResist": {
-            "name": "Show Magic Resistance field for PCs",
+            "name": "Show Magic Resist field for PCs",
             "label": "Display editable Magic Resistance field on the player character sheets."
-        }
+        },
+        "showChangeHeroDice": {
+            "name": "Show Hero Dice changes in chat",
+            "label": "Display a message in chat when a character gains or loses Hero Dice."
+        }      
     },
     "EZD6": {
         "HeroPath": "Hero Path",
@@ -106,6 +110,7 @@
         "Roll": "Roll",
         "Cancel": "Cancel",
         "MiraculousSave": "Miraculous Save",
+        "RollMiraculousSave": "Roll a Miraculous Save",
         "ToHitRoll": "To Hit Roll",
         "for": "for",
         "attacks": "attacks",
@@ -140,11 +145,23 @@
         "added": "added",
         "Total": "Total",
         "OpenMini": "Open Mini Sheet",
+        "MiniSheet": "Mini Sheet",
         "Resist": "Resist",
         "RollMagicResistance": "Roll Magic Resistance",
         "RollsToResistMagic": "Rolls To Resist Magic",
         "MagicResist": "Magic Resist",
-        "Dice": "Dice"
+        "Dice": "Dice",
+        "LeftClick": "Left click",
+        "RightClick": "Right click",
+        "Spend": "Spend",
+        "Earn": "Earn",
+        "OpenFullSheet": "Open full character sheet",
+        "RollWoundSave": "Roll a Wound Save",
+        "Lose": "Lose",
+        "Heal": "Heal",
+        "SpellAbility": "Spell/Ability",
+        "RollMonsterMagic": "Roll to use a magical ability",
+        "rollsmonstermagic": "rolls to cast a spell or use a magical ability"
     }
 }
 

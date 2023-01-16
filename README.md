@@ -48,11 +48,13 @@ This project is free and open source, but if you're feeling generous and would l
 - Item descriptions are now formattable rather than plain text
 - There were several (potentially conflicting) requests for more sub-types for Equipment; compromised by adding "Magic" and "Other" types as catch-alls for what doesn't quite fit elsewhere
 - Added a button to replenish a Hero Die by spending 5 Karma
-- Added a system option (Game Settings -> Configure Settings -> EZD6) to show Karma changes in chat.  Turned off ("Never") by default.
+- Added system options (Game Settings -> Configure Settings -> EZD6) to show Karma and Hero Dice changes in chat.  Turned off ("Never") by default.
 - Added a system option to show 'to hit' on player chharacter sheet like on monster sheet.  Off by default - this is mainly for RRs who want to customize the rules
 - Added magic resistance roller to character & monster sheets.  Magic resistance dice can be specified on the monster sheet, and a system option is avaliable to make the # of dice editable for player characters.
+- Added magic roll button to monster sheet for magic casting or spell-like powers (e.g. dragon breath)
 - Added plus/minus icons for single-click increment/decrement of strikes
-- todo: min/full-size character sheet 
+- Added magic section to monster sheet 
+- Added "mini sheet" capability for characters and monsters.  These are small displays with name, basic stats, and buttons for basic roll types that take up very little space on screen, so now full-size character sheets can stay closed most of the time.  See the separate [New features in version 1.1.0](v110_changes.md) documentation for more info. 
 
 ### [1.0.1] - 2022-09-15
 - Minor config changes to suppress warning messages at startup on Foundry v10.  Currently still supports v9 but future versions will probably be v10 only.

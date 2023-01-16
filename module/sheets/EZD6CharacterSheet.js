@@ -1,7 +1,7 @@
 import { EZD6 } from "../config.js";
 import EZItem from "../ezitem.js"
-import { MiniCharSheet } from "../minicharsheet.js";
-import { MiniMonsterSheet } from "../minimonstersheet.js"; "../minimonstersheet.js";
+import { MiniCharSheet } from "./minicharsheet.js";
+import { MiniMonsterSheet } from "./minimonstersheet.js"; "../minimonstersheet.js";
 
 export default class EZD6CharacterSheet extends ActorSheet {
     static get defaultOptions() {
@@ -34,7 +34,6 @@ export default class EZD6CharacterSheet extends ActorSheet {
 
     activateListeners(html) {
         super.activateListeners(html);
-
         if (!this.options.editable) return;
 
         html.find('.minus').click(this._onMinusClick.bind(this));
@@ -49,11 +48,12 @@ export default class EZD6CharacterSheet extends ActorSheet {
         html.find('.herodieroll').click(this._onHeroRoll.bind(this));
         html.find('.roll-cast').click(this._onRollCast.bind(this));
         html.find('.desc-chat').click(this._onDescChat.bind(this));
-        html.find('.buyherodie').click(this._onBuyHeroDie.bind(this));
-        html.find('.char-mini').click(this._onShowMini.bind(this));       
+        html.find('.buyherodie').click(this._onBuyHeroDie.bind(this));   
         html.find('.roll-resist').click(this._onRollResist.bind(this)); 
         html.find('.strikes-minus').click(this._onStrikesMinusClick.bind(this));
         html.find('.strikes-plus').click(this._onStrikesPlusClick.bind(this)); 
+        html.find('.roll-monster-magic').click(this._onRollCast.bind(this));
+
     }
 
     _prepareItems(sheetData) {
@@ -209,11 +209,11 @@ export default class EZD6CharacterSheet extends ActorSheet {
     }
 
     async _onStrikesMinusClick(event) {
-        this.actor.RemoveStrike();
+        this.actor.removeStrike();
     }
 
     async _onStrikesPlusClick(event) {
-        this.actor.AddStrike();
+        this.actor.addStrike();
     }
 
     async _onItemMinusClick(event) {
@@ -370,9 +370,7 @@ export default class EZD6CharacterSheet extends ActorSheet {
     }
 
 
-    async _onShowMini(event) {
-        event.preventDefault();
-
+    async showMini() {
         if (this.actor.type === 'monster') {
             new MiniMonsterSheet(this.actor).render(true);
         }
@@ -381,4 +379,6 @@ export default class EZD6CharacterSheet extends ActorSheet {
         }
     }
 
+
+    
 }

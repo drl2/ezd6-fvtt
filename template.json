@@ -22,7 +22,8 @@
         "wealth": "WEALTH.Moderate"
       },
       "monster": {
-        "templates": ["base"]
+        "templates": ["base"],
+        "magicdice": 0
       }
     },
     "Item": {

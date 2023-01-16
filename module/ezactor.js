@@ -1,6 +1,6 @@
 import { EZD6 } from './config.js';
-import { MiniCharSheet } from './minicharsheet.js';
-import { MiniMonsterSheet } from './minimonstersheet.js';
+import { MiniCharSheet } from './sheets/minicharsheet.js';
+import { MiniMonsterSheet } from './sheets/minimonstersheet.js';
 import {simpleGMWhisper} from './utility.js';
 
 export default class EZActor extends Actor {
@@ -37,6 +37,7 @@ export default class EZActor extends Actor {
 
     _preUpdate(changed, options, userId) {
         const oldKarma = this.system.karma;
+        const oldDice = this.system.herodice;
         super._preUpdate(changed, options, userId);
 
         if (changed.system.hasOwnProperty('karma')) {
@@ -64,7 +65,35 @@ export default class EZActor extends Actor {
                     ChatMessage.create(chatOptions);
                 }
             }
+        }    
 
+        if (changed.system.hasOwnProperty('herodice')) {
+            const showChangeHeroDice = game.settings.get(game.system.id, "showChangeHeroDice");
+            const newDice = changed.system.herodice;
+            let chg = newDice - oldDice;
+            chg = (chg === 0) ? 1 : chg;
+
+            if (showChangeHeroDice !== "never") {
+                
+                const speaker = ChatMessage.getSpeaker({actor: this});
+                
+                const msg = this.name + " " + 
+                    (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
+                    + " " + Math.abs(chg)
+                    + " " + game.i18n.localize("EZD6.HeroDice") + " (" + game.i18n.localize("EZD6.Total")
+                    + ": " + newDice + ")";
+
+                if (showChangeHeroDice == "rronly") {
+                    simpleGMWhisper(speaker, msg);
+                }
+                else {  //show everyone
+                    const chatOptions = {
+                        speaker: speaker,
+                        content: msg
+                    }
+                    ChatMessage.create(chatOptions);
+                }
+            }
         }    
     }
 
@@ -234,7 +263,7 @@ export default class EZActor extends Actor {
     }
 
     async rollCast(dataset) {
-        const dlgContent = await renderTemplate("systems/ezd6/templates/dialogs/cast.hbs", dataset);
+        let dice = 1;
         let title = game.i18n.localize("EZD6.Roll");
         let actionText = "";
 
@@ -247,7 +276,15 @@ export default class EZActor extends Actor {
                 title = game.i18n.localize("EZD6.RollMiracle");
                 actionText = this.name + " " + game.i18n.localize("EZD6.praysforamiracle");
                 break;
+            case 'monster-magic':
+                dice = this.system.magicdice;
+                title = game.i18n.localize("EZD6.RollMonsterMagic");
+                actionText = this.name + " " + game.i18n.localize("EZD6.rollsmonstermagic");
+                break;
         }
+
+        dataset.dice = dice;
+        const dlgContent = await renderTemplate("systems/ezd6/templates/dialogs/cast.hbs", dataset);
 
         const dlg = new Dialog({
             title: title,
@@ -379,15 +416,29 @@ export default class EZActor extends Actor {
     }
 
     
-    async RemoveStrike() {
+    async removeStrike() {
         const actorData = this.system;
         const newVal = actorData.strikes.value > 0 ? actorData.strikes.value -1 : 0;
         if (newVal !== actorData.strikes.value) { await this.update({"system.strikes.value": newVal}); };
     }
 
-    async AddStrike() {
+    async addStrike() {
         const actorData = this.system;
         const newVal = actorData.strikes.value < actorData.strikes.max ? actorData.strikes.value +1 : actorData.strikes.max;
         if (newVal !== actorData.strikes.value) { await this.update({"system.strikes.value": newVal}); };
+    }
+
+    async addHeroDie() {
+        await this.update({"system.herodice": this.system.herodice + 1});
+    }
+
+    async spendKarma() {
+        let karma = this.system.karma -1;
+        if (karma < 0) { karma = 0; }
+        await this.update({"system.karma": karma});
+    }
+
+    async addKarma() {
+        await this.update({"system.karma": this.system.karma + 1});
     }
 }

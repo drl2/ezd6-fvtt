@@ -8,9 +8,6 @@
             <div class="header-stats">
                 <div></div>
                 <div></div>
-                <div>
-                    <a class="item-control char-mini right-justify" title="{{localize 'EZD6.OpenMini'}}"><i class="fa-regular fa-window"></i></a>
-                </div>
             </div>
         </div>
 
@@ -108,9 +105,16 @@
                     </div>
                 </div>
                 <div class="right-col">
+                    <div><span class="headertext">{{localize 'EZD6.Magic'}}</span></div>
                     <div>
-                        <span class="headertext">{{localize 'EZD6.MagicResist'}}</span><br />
-                        {{localize 'EZD6.Dice'}}: 
+                        {{localize 'EZD6.SpellAbility'}}
+                        <input name="system.magicdice" type="number" value="{{system.magicdice}}" />d6
+                        <a class="item-control roll-monster-magic" data-rolltype="monster-magic" title="{{localize 'EZD6.RollMonsterMagic'}}">
+                            <i class="fas fa-dice-six"></i>
+                        </a> 
+                    </div>
+                    <div>
+                        {{localize 'EZD6.Resist'}}
                         <input name="system.magicresist" type="number" value="{{system.magicresist}}" />d6
                         <a class="item-control roll-resist" data-rolltype="magicresist" title="{{localize 'EZD6.RollMagicResistance'}}">
                             <i class="fas fa-dice-six"></i>
