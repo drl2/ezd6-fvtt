@@ -26,7 +26,8 @@ Hooks.once("init", function() {
         macros: Macros,
         rollTask: Macros.rollTask,
         rollCast: Macros.rollCast,
-        rollHeroDie: Macros.rollHeroDie
+        rollHeroDie: Macros.rollHeroDie,
+        rollResist: Macros.rollResist
     }
 
     Actors.unregisterSheet("core", ActorSheet);
@@ -149,5 +150,4 @@ function registerSystemSettings() {
         default: false
     });
     
-
 };

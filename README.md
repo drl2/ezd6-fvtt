@@ -54,7 +54,10 @@ This project is free and open source, but if you're feeling generous and would l
 - Added magic roll button to monster sheet for magic casting or spell-like powers (e.g. dragon breath)
 - Added plus/minus icons for single-click increment/decrement of strikes
 - Added magic section to monster sheet 
-- Added "mini sheet" capability for characters and monsters.  These are small displays with name, basic stats, and buttons for basic roll types that take up very little space on screen, so now full-size character sheets can stay closed most of the time.  See the separate [New features in version 1.1.0](v110_changes.md) documentation for more info. 
+- Added "mini sheet" capability for characters and monsters.  These are small displays with name, basic stats, and buttons for basic roll types that take up very little space on screen, so now full-size character sheets can stay closed most of the time.  See the separate [New features in version 1.1.0](v110_changes.md) documentation for more info.  *Thanks to @Allen on the EZD6 Discord for inspiration and example code on this.*
+ - To avoid confusion with the ability to pray for a miracle, the "rollTask" macro helper now expects "miraculous" instead of "miracle" as the argument to make a miraculous save.
+ - Added a small library of macros
+
 
 ### [1.0.1] - 2022-09-15
 - Minor config changes to suppress warning messages at startup on Foundry v10.  Currently still supports v9 but future versions will probably be v10 only.

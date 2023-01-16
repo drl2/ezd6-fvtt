@@ -59,7 +59,7 @@
         "showChangeHeroDice": {
             "name": "Show Hero Dice changes in chat",
             "label": "Display a message in chat when a character gains or loses Hero Dice."
-        }      
+        }
     },
     "EZD6": {
         "HeroPath": "Hero Path",

@@ -234,6 +234,10 @@ export default class EZActor extends Actor {
     };
 
     async rollHeroDie(dataset) {
+        if (this.type != "character") {
+            ui.notifications.warn(game.i18n.localize("MESSAGES.NoHeroDice"));
+        }
+        else
         if (this.system.herodice === 0) {
             ui.notifications.info(game.i18n.localize("MESSAGES.NoHeroDice"));
         }
@@ -441,4 +445,16 @@ export default class EZActor extends Actor {
     async addKarma() {
         await this.update({"system.karma": this.system.karma + 1});
     }
+
+    
+    async showMini() {
+        if (this.type === 'monster') {
+            new MiniMonsterSheet(this).render(true);
+        }
+        else {
+            new MiniCharSheet(this).render(true);
+        }
+    }
+
+
 }

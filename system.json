@@ -24,6 +24,17 @@
       "flags": {}
     }
   ],
+  "packs": [
+    {
+      "name": "ezd6-system-macros",
+      "label": "EZD6 System Macros",
+      "system": "exd6",
+      "path": "packs/ezd6-system-macros.db",
+      "type": "Macro",
+      "private": true,
+      "flags": {}
+    }
+  ],
   "manifest": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.json",
   "download": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.zip",
   "gridDistance": 5,
