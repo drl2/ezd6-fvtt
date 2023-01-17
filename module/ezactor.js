@@ -39,8 +39,7 @@ export default class EZActor extends Actor {
         const oldKarma = this.system.karma;
         const oldDice = this.system.herodice;
         super._preUpdate(changed, options, userId);
-
-        if (changed.system.hasOwnProperty('karma')) {
+        if (changed.system?.hasOwnProperty('karma')) {
             const showKarmaChange = game.settings.get(game.system.id, "showKarmaChangeInChat");
 
             if (showKarmaChange !== "never") {
@@ -67,7 +66,7 @@ export default class EZActor extends Actor {
             }
         }    
 
-        if (changed.system.hasOwnProperty('herodice')) {
+        if (changed.system?.hasOwnProperty('herodice')) {
             const showChangeHeroDice = game.settings.get(game.system.id, "showChangeHeroDice");
             const newDice = changed.system.herodice;
             let chg = newDice - oldDice;
@@ -99,6 +98,7 @@ export default class EZActor extends Actor {
 
     _onUpdate(data, options, userId) {
         super._onUpdate(data, options, userId);
+        if (data.system)
         if (('strikes' in data.system) || ('karma' in data.system) || ('herodice' in data.system))
         {
             let id = `ezd6-mini-sheet-${this.id}`;
