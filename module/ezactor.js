@@ -40,71 +40,80 @@ export default class EZActor extends Actor {
         const oldDice = this.system.herodice;
         super._preUpdate(changed, options, userId);
 
-        if (changed.system.hasOwnProperty('karma')) {
-            const showKarmaChange = game.settings.get(game.system.id, "showKarmaChangeInChat");
 
-            if (showKarmaChange !== "never") {
-                const newKarma = changed.system.karma;
-                const chg = newKarma - oldKarma;
-                const speaker = ChatMessage.getSpeaker({actor: this});
-                
-                const msg = this.name + " " + 
-                    (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
-                    + " " + Math.abs(chg)
-                    + " " + game.i18n.localize("EZD6.Karma") + " (" + game.i18n.localize("EZD6.Total")
-                    + ": " + newKarma + ")";
+        if (changed.system) {
 
-                if (showKarmaChange == "rronly") {
-                    simpleGMWhisper(speaker, msg);
-                }
-                else {  //show everyone
-                    const chatOptions = {
-                        speaker: speaker,
-                        content: msg
+        console.warn(changed.system);
+        console.warn(changed.system?.hasOwnProperty('karma'));
+
+            if (changed.system?.hasOwnProperty('karma')) {
+                const showKarmaChange = game.settings.get(game.system.id, "showKarmaChangeInChat");
+
+                if (showKarmaChange !== "never") {
+                    const newKarma = changed.system.karma;
+                    const chg = newKarma - oldKarma;
+                    const speaker = ChatMessage.getSpeaker({actor: this});
+                    
+                    const msg = this.name + " " + 
+                        (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
+                        + " " + Math.abs(chg)
+                        + " " + game.i18n.localize("EZD6.Karma") + " (" + game.i18n.localize("EZD6.Total")
+                        + ": " + newKarma + ")";
+
+                    if (showKarmaChange == "rronly") {
+                        simpleGMWhisper(speaker, msg);
                     }
-                    ChatMessage.create(chatOptions);
-                }
-            }
-        }    
-
-        if (changed.system.hasOwnProperty('herodice')) {
-            const showChangeHeroDice = game.settings.get(game.system.id, "showChangeHeroDice");
-            const newDice = changed.system.herodice;
-            let chg = newDice - oldDice;
-            chg = (chg === 0) ? 1 : chg;
-
-            if (showChangeHeroDice !== "never") {
-                
-                const speaker = ChatMessage.getSpeaker({actor: this});
-                
-                const msg = this.name + " " + 
-                    (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
-                    + " " + Math.abs(chg)
-                    + " " + game.i18n.localize("EZD6.HeroDice") + " (" + game.i18n.localize("EZD6.Total")
-                    + ": " + newDice + ")";
-
-                if (showChangeHeroDice == "rronly") {
-                    simpleGMWhisper(speaker, msg);
-                }
-                else {  //show everyone
-                    const chatOptions = {
-                        speaker: speaker,
-                        content: msg
+                    else {  //show everyone
+                        const chatOptions = {
+                            speaker: speaker,
+                            content: msg
+                        }
+                        ChatMessage.create(chatOptions);
                     }
-                    ChatMessage.create(chatOptions);
                 }
-            }
-        }    
+            }    
+
+            if (changed.system.hasOwnProperty('herodice')) {
+                const showChangeHeroDice = game.settings.get(game.system.id, "showChangeHeroDice");
+                const newDice = changed.system.herodice;
+                let chg = newDice - oldDice;
+                chg = (chg === 0) ? 1 : chg;
+
+                if (showChangeHeroDice !== "never") {
+                    
+                    const speaker = ChatMessage.getSpeaker({actor: this});
+                    
+                    const msg = this.name + " " + 
+                        (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
+                        + " " + Math.abs(chg)
+                        + " " + game.i18n.localize("EZD6.HeroDice") + " (" + game.i18n.localize("EZD6.Total")
+                        + ": " + newDice + ")";
+
+                    if (showChangeHeroDice == "rronly") {
+                        simpleGMWhisper(speaker, msg);
+                    }
+                    else {  //show everyone
+                        const chatOptions = {
+                            speaker: speaker,
+                            content: msg
+                        }
+                        ChatMessage.create(chatOptions);
+                    }
+                }
+            }    
+        }
     }
 
     _onUpdate(data, options, userId) {
         super._onUpdate(data, options, userId);
-        if (('strikes' in data.system) || ('karma' in data.system) || ('herodice' in data.system))
-        {
-            let id = `ezd6-mini-sheet-${this.id}`;
-            if (this.isToken) id += `-${this.token.id}`;
-            const mini = Object.values(ui.windows).find(window => window.id === id)
-            if (mini) { mini.render(true); }
+        if (data.system) {
+            if (('strikes' in data.system) || ('karma' in data.system) || ('herodice' in data.system))
+            {
+                let id = `ezd6-mini-sheet-${this.id}`;
+                if (this.isToken) id += `-${this.token.id}`;
+                const mini = Object.values(ui.windows).find(window => window.id === id)
+                if (mini) { mini.render(true); }
+            }
         }
     }
 
