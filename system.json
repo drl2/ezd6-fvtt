@@ -4,11 +4,10 @@
   "description": "A FoundryVTT system implementation of Scotty McFarland's EZD6 system",
   "url": "https://github.com/drl2/ezd6-fvtt",
   "license": "LICENSE.txt",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "compatibility": {
     "minimum": "9",
-    "verified": "10",
-    "maximum": "10"
+    "verified": "11"
   },
   "esmodules": [
     "module/ezd6.js"
@@ -31,7 +30,6 @@
       "system": "exd6",
       "path": "packs/ezd6-system-macros.db",
       "type": "Macro",
-      "private": true,
       "flags": {}
     }
   ],

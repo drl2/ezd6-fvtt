@@ -39,6 +39,9 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
+### [1.1.2] - 2023-07-16
+- Changed manifest to allow Foundry V11+ support
+
 ### [1.1.1] - 2023-01-17
 - Minor fixes
     - Changing character images was failing as a side effect of some other changes
