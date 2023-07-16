@@ -39,6 +39,15 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
+### [1.1.2] - 2023-07-16
+- Changed manifest to allow Foundry V11+ support
+
+### [1.1.1] - 2023-01-17
+- Minor fixes
+    - Changing character images was failing as a side effect of some other changes
+    - "Cast a spell" button on mini character sheet was broken & not displaying tooltip correctly
+- Description boxes changed to use the newer ProseMirror editor for a look & feel more like the v10 journals (Thanks, @xaukael)
+
 ### [1.1.0] - 2023-01-16
 - There are enough small quality-of-life and customization-enabling changes in this version to warrant some [dedicated new documentation](v110_changes.md).
 - Modifications for better Foundry V10 (and beyond) compatibility.  ***This version will only work with Foundry 10 or higher.  Continue using v1.0.1 in Foundry 9.***  Changes related to v10 include:
