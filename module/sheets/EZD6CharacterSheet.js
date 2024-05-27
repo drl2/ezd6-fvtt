@@ -5,7 +5,7 @@ import { MiniMonsterSheet } from "./minimonstersheet.js"; "../minimonstersheet.j
 
 export default class EZD6CharacterSheet extends ActorSheet {
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["ezd6", "sheet", "character"]
         });
     }
@@ -19,13 +19,13 @@ export default class EZD6CharacterSheet extends ActorSheet {
         }
     }
 
-    getData(options) {
-        const sheetData = super.getData(options);
+    async getData(options) {
+        const sheetData = await super.getData(options);
         const actorData = this.actor.toObject(false);
         sheetData.actor = actorData;
         sheetData.system = actorData.system;
         sheetData.config = EZD6;
-        sheetData.enrichedDescription = TextEditor.enrichHTML(actorData.system.description, {async: false});
+        sheetData.enrichedDescription = await TextEditor.enrichHTML(actorData.system.description);
 
         this._prepareItems(sheetData);
 

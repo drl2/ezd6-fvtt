@@ -7,7 +7,7 @@ export class MiniCharSheet extends FormApplication {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             template: 'systems/ezd6/templates/formapplications/minichar.hbs',
             closeOnSubmit: false,
             width: "290",
@@ -27,8 +27,8 @@ export class MiniCharSheet extends FormApplication {
         return this.actor.name;
     }
 
-    getData(options) {
-        const data = super.getData(options);
+    async getData(options) {
+        const data = await super.getData(options);
         data.strikesHtml = this.renderStrikes();
         data.heroDiceHtml = this.renderHeroDice();
         data.karmaHtml = this.renderKarma();

@@ -3,7 +3,7 @@ import { EZD6 } from "../config.js";
 export default class EZD6ItemSheet extends ItemSheet {
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["ezd6", "sheet", "item"]
         })
     }
@@ -14,8 +14,8 @@ export default class EZD6ItemSheet extends ItemSheet {
 
     
 
-    getData(options) {
-        const baseData = super.getData();
+    async getData(options) {
+        const baseData = await super.getData();
         const isOwned = (baseData.item.actor !== null)
 
         let sheetData = {
@@ -29,7 +29,7 @@ export default class EZD6ItemSheet extends ItemSheet {
             isBoon: baseData.item.type === "boon"
         }
         sheetData.itemType = game.i18n.localize(`ITEM.Type${sheetData.item.type.titleCase()}`)
-        sheetData.enrichedDescription = TextEditor.enrichHTML(baseData.item.system.description, {async: false});
+        sheetData.enrichedDescription = await TextEditor.enrichHTML(baseData.item.system.description);
 
         return sheetData;
     }
