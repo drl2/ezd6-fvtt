@@ -7,7 +7,7 @@ export class MiniMonsterSheet extends FormApplication {
     }
 
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
+        return foundry.utils.mergeObject(super.defaultOptions, {
             template: 'systems/ezd6/templates/formapplications/minimonster.hbs',
             closeOnSubmit: false,
             width: "290",
@@ -27,8 +27,8 @@ export class MiniMonsterSheet extends FormApplication {
         return this.actor.name;
     }
 
-    getData(options) {
-        const data = super.getData(options);
+    async getData(options) {
+        const data = await super.getData(options);
         data.strikesHtml = this.renderStrikes();
         return data;
     }
