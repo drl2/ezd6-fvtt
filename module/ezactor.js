@@ -46,22 +46,24 @@ export default class EZActor extends Actor {
                 const newKarma = changed.system.karma;
                 const chg = newKarma - oldKarma;
                 const speaker = ChatMessage.getSpeaker({actor: this});
+                if (chg != 0){
                 
-                const msg = this.name + " " + 
-                    (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
-                    + " " + Math.abs(chg)
-                    + " " + game.i18n.localize("EZD6.Karma") + " (" + game.i18n.localize("EZD6.Total")
-                    + ": " + newKarma + ")";
+                    const msg = this.name + " " + 
+                        (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
+                        + " " + Math.abs(chg)
+                        + " " + game.i18n.localize("EZD6.Karma") + " (" + game.i18n.localize("EZD6.Total")
+                        + ": " + newKarma + ")";
 
-                if (showKarmaChange == "rronly") {
-                    simpleGMWhisper(speaker, msg);
-                }
-                else {  //show everyone
-                    const chatOptions = {
-                        speaker: speaker,
-                        content: msg
+                    if (showKarmaChange == "rronly") {
+                        simpleGMWhisper(speaker, msg);
                     }
-                    ChatMessage.create(chatOptions);
+                    else {  //show everyone
+                        const chatOptions = {
+                            speaker: speaker,
+                            content: msg
+                        }
+                        ChatMessage.create(chatOptions);
+                    }
                 }
             }
         }    
@@ -70,27 +72,27 @@ export default class EZActor extends Actor {
             const showChangeHeroDice = game.settings.get(game.system.id, "showChangeHeroDice");
             const newDice = changed.system.herodice;
             let chg = newDice - oldDice;
-            chg = (chg === 0) ? 1 : chg;
 
             if (showChangeHeroDice !== "never") {
+                if (chg != 0){
+                    const speaker = ChatMessage.getSpeaker({actor: this});
                 
-                const speaker = ChatMessage.getSpeaker({actor: this});
-                
-                const msg = this.name + " " + 
-                    (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
-                    + " " + Math.abs(chg)
-                    + " " + game.i18n.localize("EZD6.HeroDice") + " (" + game.i18n.localize("EZD6.Total")
-                    + ": " + newDice + ")";
+                    const msg = this.name + " " + 
+                        (chg > 0 ? game.i18n.localize("EZD6.added") : game.i18n.localize("EZD6.spent"))
+                        + " " + Math.abs(chg)
+                        + " " + game.i18n.localize("EZD6.HeroDice") + " (" + game.i18n.localize("EZD6.Total")
+                        + ": " + newDice + ")";
 
-                if (showChangeHeroDice == "rronly") {
-                    simpleGMWhisper(speaker, msg);
-                }
-                else {  //show everyone
-                    const chatOptions = {
-                        speaker: speaker,
-                        content: msg
+                    if (showChangeHeroDice == "rronly") {
+                        simpleGMWhisper(speaker, msg);
                     }
-                    ChatMessage.create(chatOptions);
+                    else {  //show everyone
+                        const chatOptions = {
+                            speaker: speaker,
+                            content: msg
+                        }
+                        ChatMessage.create(chatOptions);
+                    }
                 }
             }
         }    
