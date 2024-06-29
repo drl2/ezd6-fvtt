@@ -39,6 +39,9 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
+### [1.1.4] - 2024-06-28
+- Fixed disappearing equipment bug introduced from last version's cleanup
+
 ### [1.1.3] - 2024-05-27
 - Minor fixes for Foundry v12 compatibililty
 - Addressed usage of some older methods that will be phased out in future Foundry versions 

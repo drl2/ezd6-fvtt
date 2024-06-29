@@ -27,11 +27,8 @@ export default class EZItem extends Item {
         await super._preUpdate(changed, options, userId);
 
         if (foundry.utils.hasProperty(changed.system, "equipmenttype")) {
-    console.warn(changed);
             const splitArray = changed.system["equipmenttype"].toLowerCase().split(".");
-    console.warn(splitArray[0]);
             const img = EZD6.EquipmentTypeImages[splitArray[0]];
-    console.warn(img);
             changed.img = img;
         }   
     }
