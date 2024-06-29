@@ -104,23 +104,26 @@ export default class EZD6CharacterSheet extends ActorSheet {
             }
 
             if (i.type === 'equipment') {
-                switch (i.system["equipmenttype"]) {
-                    case 'EQUIPMENT.Gear':
+                // workaround for selectOptions injecting short name instead of long name previously used
+                let x = i.system["equipmenttype"].split('.');
+                let eqType = x[x.length-1].toLowerCase();
+                switch (eqType) {
+                    case 'gear':
                         equipment_gear.push(i);
                         break;
-                    case 'EQUIPMENT.Weapon':
+                    case 'weapon':
                         equipment_weapons.push(i);
                         break;
-                    case 'EQUIPMENT.Scroll':
+                    case 'scroll':
                         equipment_scrolls.push(i);
                         break;
-                    case 'EQUIPMENT.Potion':
+                    case 'potion':
                         equipment_potions.push(i);
                         break;
-                    case 'EQUIPMENT.Magic':
+                    case 'magic':
                         equipment_magic.push(i);
                         break;
-                    case 'EQUIPMENT.Other':
+                    case 'other':
                         equipment_other.push(i);
                         break;
                 }
