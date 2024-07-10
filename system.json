@@ -37,6 +37,10 @@
   "download": "https://github.com/drl2/ezd6-fvtt/releases/latest/download/system.zip",
   "gridDistance": 5,
   "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
   "primaryTokenAttribute": "strikes",
   "secondaryTokenAttribute": "karma"
 }
