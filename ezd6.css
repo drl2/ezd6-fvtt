@@ -1,4 +1,7 @@
-
+.ezd6.sheet.item {
+  /*  Sheet header */
+  /* sheet body */
+}
 .ezd6.sheet.item form {
   display: flex;
   flex-direction: column;
@@ -69,6 +72,7 @@
   display: block;
 }
 .ezd6.sheet.mini .footer-section {
+  display: flex;
   width: 100%;
   border-top: 1px solid white;
   margin-top: 1px;
@@ -124,7 +128,9 @@
   color: grey;
   -webkit-text-stroke: 1px red;
 }
-
+.ezd6.sheet.character {
+  /*  Sheet header */
+}
 .ezd6.sheet.character form {
   display: flex;
   flex-direction: column;
