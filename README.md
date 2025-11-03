@@ -39,6 +39,9 @@ This project is free and open source, but if you're feeling generous and would l
 
 ## Change Log
 
+### [1.1.5] - 2025-11-01
+- Long-awaited minor CSS tweak to fix mini-sheet display in Foundry v13
+
 ### [1.1.4] - 2024-06-28
 - Fixed disappearing equipment bug introduced from last version's cleanup
 
